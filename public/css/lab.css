@@ -1,0 +1,128 @@
+#lab {
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+#lab-backdrop {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #00acd0;
+  z-index: 0;
+}
+
+#lab-title {
+  z-index: 2;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 2.4rem;
+}
+
+#lab .content {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: 0 -10px;
+  margin-top: -10px;
+}
+
+#lab .content-date-wrapper {
+  padding: 14px 0;
+  padding-top: 10px;
+}
+
+#lab .content-card ul {
+  padding-left: 40px;
+}
+
+#lab .content-card-back {
+  position: absolute;
+  height: 93.5px;
+  background-color: darkgrey;
+  margin-top: 0;
+  width: 100%;
+}
+
+#lab .content-card h2 {
+  color: white;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 24px;
+  z-index: 2;
+}
+
+#lab .content-card h3 {
+  font-size: 1.6rem;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+#lab .content-card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex: 1;
+  min-width: 300px;
+  margin: 10px;
+  position: relative;
+  top: -40px;
+  opacity: 0;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#lab .content-card:hover, #lab .content-card:focus {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#lab .content-resources {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#lab .content-resources > a {
+  color: white;
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  background-color: #21a7e7;
+  border-radius: 20px;
+  transition: background-color 0.3s ease-in-out 0s;
+}
+
+#lab .content-resources > a:hover, #lab .content-resources > a:focus {
+  background-color: #0b88c4;
+}
+
+#lab .content-btn-wrapper {
+  display: flex;
+  padding-top: 30px;
+  margin-top: auto;
+}
+
+#lab .content-btn {
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 14px 16px;
+  transition: background-color 0.4s ease-in-out 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background-color: #0075ff;
+}
+
+#lab .content-btn:hover, #lab .content-btn:focus {
+  background-color: #005cc7;
+}
+
+@media screen and (max-width: 400px) {
+  #lab .content-card {
+    min-width: auto;
+  }
+}

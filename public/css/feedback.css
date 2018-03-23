@@ -1,0 +1,148 @@
+#feedback {
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+#feedback-backdrop {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #ff9b00;
+  z-index: 0;
+}
+
+#feedback-title {
+  z-index: 2;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 2.4rem;
+}
+
+#feedback .content {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: 0 -10px;
+  margin-top: -10px;
+}
+
+#feedback .content-card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  position: relative;
+  top: -40px;
+  opacity: 0;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#feedback .content-card:hover, #feedback .content-card:focus  {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#feedback #feedback-card-1 {
+  flex: 6;
+  min-width: 370px;
+  position: relative;
+}
+
+#feedback #feedback-card-2 {
+  flex: 9;
+}
+
+#feedback .content-card h2 {
+  color: white;
+  padding-top: 24px;
+}
+
+#feedback .feedback-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 13px;
+  background-color: #3f4145;
+}
+
+#feedback #feedback-form-input {
+  min-height: 300px;
+  flex-grow: 1;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  background-color: rgba(0,0,0,0.07);
+}
+
+#feedback .feedback-highlight {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+}
+
+#feedback .content-card ul {
+  font-size: 1.1rem;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  padding-left: 26px;
+}
+
+#feedback .feedback-card-content {
+  padding: 20px;
+}
+
+#feedback .content-card ul li {
+  margin-bottom: 8px;
+}
+
+#feedback #feedback-submit-btn {
+  margin-left: auto;
+  padding: 12px 20px;
+  font-stretch: ultra-expanded;
+  font-size: 0.95rem;
+  border: 2px solid white;
+  color: white;
+  background: none;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+#feedback #feedback-submit-btn:hover, #feedback #feedback-submit-btn:focus {
+  background: white;
+  color: black;
+}
+
+#feedback .course-eval-wrapper {
+  padding: 16px 0;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+#feedback .course-eval-btn {
+  text-decoration: none;
+  color: #3f4145;
+  border: 2px solid #3f4145;
+  padding: 12px 20px;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+#feedback .course-eval-btn:hover {
+  color: white;
+  background-color: #3f4145;
+}
+
+@media screen and (max-width: 870px) {
+  #feedback .content {
+    flex-direction: column;
+  }
+
+  #feedback #feedback-card-2, #feedback #feedback-card-1 {
+    flex: auto;
+    min-width: auto;
+  }
+}

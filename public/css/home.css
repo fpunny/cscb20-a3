@@ -1,0 +1,177 @@
+h2 {
+  font-size: 2.1rem;
+}
+
+#home-header #stack {
+  width: 350px;
+  max-width: 100%;
+}
+
+#home-header {
+  background-image: url('../src/landing.jpg');
+  color: white;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+#home-header-title {
+  padding-right: 60px;
+}
+
+#home-header-title h1 {
+  line-height: 35px;
+  font-size: 2rem;
+}
+
+#home-header-title span {
+  font-size: 1.5rem;
+}
+
+#home-newsfeed {
+  background-color: #eceef2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0;
+  padding-top: 50px;
+}
+
+.home-newsfeed-title {
+  color: white;
+  align-self: flex-start;
+  margin-bottom: -10px;
+}
+
+.home-newsfeed-title, #home-newsfeed-text {
+  z-index: 1;
+}
+
+#home-newsfeed-backdrop {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  min-height: 300px;
+  max-height: 20%;
+  width: 100%;
+  background-color: #0f76df;
+}
+
+.home-news-item {
+  background-color: white;
+  padding: 30px 40px;
+  margin: 20px 0;
+  display: flex;
+  opacity: 0;
+  top: -40px;
+  position: relative;
+  flex-direction: column;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.home-news-data {
+  padding: 10px 0;
+  margin-bottom: 8px;
+  margin-top: 2px;
+  font-size: 0.8rem;
+}
+
+.home-news-date {
+  background-color: #21a7e7;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 14px;
+}
+
+#home-res {
+  background-color: #eceef2;
+  padding-bottom: 50px;
+}
+
+#home-calendar {
+  background-color: #eceef2;
+  padding-bottom: 10px;
+}
+#home-calendar #calendar {
+  border-width:0;
+  width: 100%;
+  height: 100%;
+}
+
+#home-calendar #calendar-wrapper {
+  background-color: white;
+  margin-top: 8px;
+  margin-bottom: 26px;
+  padding: 16px 20px;
+  position: relative;
+  opacity: 0;
+  top: -40px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: box-shadow 0.4s ease-in-out 0s;
+}
+
+#home-calendar #calendar-wrapper:hover, #home-calendar #calendar-wrapper:focus {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#home-res-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.home-res-item {
+  display: flex;
+  width: 280px;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin: 10px;
+  opacity: 0;
+  top: -40px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: box-shadow 0.4s ease-in-out 0s;
+}
+
+.home-res-item:hover, .home-res-item:focus {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.home-res-item-title {
+  color: #0f76df;
+}
+
+.home-res-icon {
+  font-size: 3.4rem;
+  margin-bottom: 20px;
+  margin-top: 16px;
+}
+
+.home-res-item-button {
+  text-decoration: none;
+  color: black;
+  padding: 16px;
+  width: 80%;
+  border: 2px solid black;
+  margin-top: 16px;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.home-res-item-button:hover, .home-res-item-button:focus {
+  background-color: #0f76df;
+  border: 2px solid #0f76df;
+  color: white;
+}

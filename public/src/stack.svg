@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st1{opacity:0.2;}
+	.st3{fill:#d19e0e;}
+	.st4{fill:#24ae2e;}
+	.st5{fill:#0072ff;}
+
+
+  /* Float Animations */
+  #s1 { animation: fade-in 3s ease-in-out 0s forwards, float 6s ease-in-out 3s infinite; transform: translateY(-20px); opacity: 0; }
+  #s2 { animation: fade-in 3s ease-in-out 0.5s forwards, float 5.6s ease-in-out 3.5s infinite reverse; transform: translateY(-20px); opacity: 0; }
+  #s3 { animation: fade-in 3s ease-in-out 1s forwards, float 5.2s ease-in-out 4s infinite; transform: translateY(-20px); opacity: 0; }
+
+  @keyframes fade-in {
+    0% { transform: translateY(-20px); opacity: 0; }
+    50% { transform: translateY(6px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 1; }
+  }
+
+  @keyframes float {
+      0% { transform: translateY(0px); }
+     30% { transform: translateY(2px); }
+     100% { transform: translateY(0px); }
+  }
+</style>
+<g id="stack" focusable="false">
+  <g id="s1" focusable="false">
+	<g class="st1" focusable="false">
+		<path class="st2" d="M33.8,53.6c-1,0.6-2.5,0.6-3.5,0L12.7,43.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,53.6z" focusable="false"/>
+	</g>
+	<g focusable="false">
+		<path class="st3" d="M33.8,51.6c-1,0.6-2.5,0.6-3.5,0L12.7,41.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,51.6z" focusable="false"/>
+	</g>
+  </g>
+
+  <g id="s2" focusable="false">
+	<g class="st1" focusable="false">
+		<path class="st2" d="M33.8,45.6c-1,0.6-2.5,0.6-3.5,0L12.7,35.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,45.6z" focusable="false"/>
+	</g>
+	<g focusable="false">
+		<path class="st4" d="M33.8,43.6c-1,0.6-2.5,0.6-3.5,0L12.7,33.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,43.6z" focusable="false"/>
+	</g>
+  </g>
+
+  <g id="s3" focusable="false">
+	<g class="st1" focusable="false">
+		<path class="st2" d="M33.8,37.6c-1,0.6-2.5,0.6-3.5,0L12.7,27.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,37.6z" focusable="false"/>
+	</g>
+	<g focusable="false">
+		<path class="st5" d="M33.8,35.6c-1,0.6-2.5,0.6-3.5,0L12.7,25.1c-1-0.6-1-1.5,0-2.1l17.5-10.5c1-0.6,2.5-0.6,3.5,0l17.5,10.5
+			c1,0.6,1,1.5,0,2.1L33.8,35.6z" focusable="false"/>
+	</g>
+  </g>
+</g>
+</svg>

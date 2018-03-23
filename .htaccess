@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule ^(public|_api)($|/) - [L]
+RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]

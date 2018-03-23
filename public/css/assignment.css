@@ -1,0 +1,132 @@
+#assignment {
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+#assignment h3 {
+  font-size: 1.6rem;
+  margin-bottom: 2px;
+}
+
+#assignment-backdrop {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #00de60;
+  z-index: 0;
+}
+
+#assignment-title {
+  z-index: 2;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 2.4rem;
+}
+
+#assignment .content {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin: 0 -10px;
+  margin-top: -10px;
+}
+
+#assignment .content-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  margin: 10px;
+  padding: 20px;
+  background-color: white;
+  position: relative;
+  top: -40px;
+  opacity: 0;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#assignment .content-card:hover, #assignment .content-card:focus {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#assignment .content-crumb {
+  display: flex;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+#assignment .content-dot {
+  padding: 6px 16px;
+  margin-right: 6px;
+  background-color: #21a7e7;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.9rem;
+}
+
+#assignment .content-btn {
+  margin-top: auto;
+  text-decoration: none;
+  color: white;
+  padding: 14px 20px;
+  background-color: #418cd8;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: background-color 0.4s ease-in-out 0s;
+}
+
+#assignment .content-btn:hover, #assignment .content-btn:focus {
+  background-color: #005ebd;
+}
+
+#assignment .content-btn-wrapper {
+  padding-top: 50px;
+  padding-bottom: 16px;
+  margin-top: auto;
+}
+
+#assignment p, #assignment ul {
+  margin-bottom: 16px;
+}
+
+#assignment ul {
+  padding-left: 20px;
+}
+
+#assignment .TBR {
+  position: relative;
+}
+
+#assignment .TBR:hover::before, #assignment .TBR:focus::before {
+  background-color: rgba(0,0,0,0.5);
+}
+
+#assignment .TBR::before {
+  content: "To Be Released";
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+  transition: background-color 0.4s ease-in-out 0s;
+  background-color: rgba(0,0,0,0.4);
+}
+
+@media screen and (max-width: 400px) {
+  #assignment .content-card {
+    min-width: auto;
+    width: 100%;
+  }
+}

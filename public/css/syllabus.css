@@ -1,0 +1,136 @@
+#syllabus {
+  background-color: rgba(0,0,0,0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 140px;
+}
+
+#syllabus .content {
+  display: flex;
+}
+
+#syllabus .content-col {
+  flex: 1;
+  z-index: 2;
+}
+
+#syllabus #syllabus-title {
+  z-index: 2;
+  color: white;
+  padding-bottom: 20px;
+  font-size: 2.4rem;
+}
+
+#syllabus #syll-col-1 {
+  margin-right: 6px;
+}
+
+#syllabus #syll-col-2 {
+  margin-left: 6px;
+}
+
+#syllabus .content-card {
+  background-color: white;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  position: relative;
+  top: -40px;
+  opacity: 0;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#syllabus .content-card:hover, #syllabus .content-card:focus {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#syllabus .content-card h2 {
+  font-size: 1.7rem;
+  line-height: 30px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+#syllabus .content-card ul {
+  padding-left: 20px;
+}
+
+#syllabus .content-card p,  #syllabus .content-card ul {
+  margin-bottom: 14px;
+}
+
+#syllabus #grading-table {
+  display: table;
+  padding-left: 20px;
+  padding-bottom: 12px;
+}
+
+#syllabus #grading-table .table-row {
+  display: table-row;
+}
+
+#syllabus #grading-table .table-row div {
+  display: table-cell;
+}
+
+#syllabus #grading-table .table-row div:first-child {
+  text-align: right;
+}
+
+#syllabus #grading-table .table-row div:nth-child(2) {
+  text-align: center;
+  padding: 0 8px;
+}
+
+#syllabus #grading-table .table-row div:nth-child(3) {
+  font-size: 0.9rem;
+}
+
+#syllabus-backdrop {
+  margin-top: 0;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  background-color: #ff2b2b;
+  z-index: 0;
+}
+
+#syllabus-header-wrapper {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#syllabus-download-btn {
+  font-size: 0.9rem;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  text-decoration: none;
+  margin-left: auto;
+  margin-bottom: 40px;
+  padding: 12px 24px;
+  border: 2px solid white;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+#syllabus-download-btn:hover, #syllabus-download-btn:focus {
+  color: #ff2b2b;
+  background-color: white;
+}
+
+@media screen and (max-width: 800px) {
+
+  #syllabus .content {
+    flex-direction: column;
+  }
+
+  #syllabus #syll-col-1 {
+    margin-right: 0px;
+  }
+
+  #syllabus #syll-col-2 {
+    margin-left: 0px;
+  }
+}
