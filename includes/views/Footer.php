@@ -26,6 +26,6 @@
       </div>
     </footer>
   </body>
-<script src="/public/js/script.js"></script>
-<script src="/public/js/<?php echo strtolower($viewName); ?>.js"></script>
+<script src="/cscb20/punfrede/public/js/script.js"></script>
+<script src="/cscb20/punfrede/public/js/<?php echo strtolower($viewName); ?>.js"></script>
 </html>
