@@ -1,4 +1,6 @@
 RewriteEngine On
 
-RewriteRule ^(public|_api)($|/) - [L,QSA]
+RewriteRule ^(public)($|/) - [L]
+RewriteRule ^api/([^/]+)/([^/]+)/? index.php?url=api&api=$1&id=$2 [L,QSA]
+RewriteRule ^api/([^/]+)/? index.php?url=api&api=$1 [L,QSA]
 RewriteRule ^([^/]+)/? index.php?url=$1 [L,QSA]
