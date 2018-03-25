@@ -13,6 +13,11 @@ Route::set('syllabus', function () {
 });
 
 Route::set('api', function () {
+  require_once("./includes/classes/API.php");
+  echo $_GET['url'];
+  echo $_GET['api'];
+  echo $_GET['id'];
+  echo $_GET['uid'];
   require_once('./includes/api/Login.php');
 });
 
