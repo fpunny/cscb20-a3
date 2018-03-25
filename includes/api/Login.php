@@ -16,11 +16,22 @@ class Login extends API {
     }
   }
 
+  function checkUser($utorid) {
+    $sql = self::db->query("SELECT utorid FROM USERS WHERE utorid='$utorid'");
+    if ($sql) {
+      $obj = self::buildObject($sql);
+      if (sizeof($obj) == 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   function checkPassword($utorid, $password) {
     $sql = self::$db->query("SELECT password FROM SYSTEM WHERE utorid='$utorid'");
     if ($sql) {
       $obj = self::buildObject($sql);
-      if (sizeof($obj) >= 1 && $obj[0]["password"] == $password) {
+      if (sizeof($obj) == 1 && $obj[0]["password"] == $password) {
         return true;
       }
     }
@@ -28,12 +39,5 @@ class Login extends API {
   }
 
 }
-
-$login = new Login();
-echo $login->test();
-echo ' - ';
-echo $login->getUserType("b");
-echo ' - ';
-echo var_dump($login->checkPassword("b", "0cc175b9c0f1b6a831c399e269772661"));
 
 ?>

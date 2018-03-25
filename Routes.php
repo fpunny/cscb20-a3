@@ -13,12 +13,24 @@ Route::set('syllabus', function () {
 });
 
 Route::set('api', function () {
-  require_once("./includes/classes/API.php");
-  echo $_GET['url'];
-  echo $_GET['api'];
-  echo $_GET['id'];
-  echo $_GET['uid'];
-  require_once('./includes/api/Login.php');
+  if ($_GET['api']) {
+    echo $_GET['api'];
+  }
+
+  if ($_GET['id']) {
+    echo $_GET['id'];
+  }
+
+  if ($_GET['uid']) {
+    echo $_GET['uid'];
+  }
+
+  $login = new Login();
+  echo $login->test();
+  echo ' - ';
+  echo $login->getUserType("b");
+  echo ' - ';
+  echo var_dump($login->checkPassword("b", "0cc175b9c0f1b6a831c399e269772661"));
 });
 
 ?>
