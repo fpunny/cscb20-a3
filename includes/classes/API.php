@@ -1,46 +1,44 @@
 <?php
 
-header("content-type: application/json;odata=verbose");
-
-class Database {
-
-  protected static $connection;
-
-  public function connect() {
-    $config = parse_ini_file('./config.ini');
-    self::$connection = new mysqli($config['server'], $config['username'], $config['password'], $config['dbname']);
-
-    if (self::$connection === false) {
-      printf("Connect Failed: %s", self::$connection->connect_error);
-      return false;
-    }
-
-    return self::$connection;
-  }
-
-  public function query($query) {
-    $connection = $this->connect();
-    $result = $connection->query($query);
-    return $result;
-  }
-
-  public function error() {
-    $connection = $this->connect();
-    return $connection->error;
-  }
-}
+header("Content-Type: application/json; charset=UTF-8");
 
 class API {
 
   protected static $db;
   protected static $conn;
+  private static $isAuth = false;
+  private static $user;
 
-  function __construct() {
-    self::$db = new DataBase();
+  function connect($token) {
+    self::$db = new Database();
     self::$conn = self::$db->connect();
+    self::authenticate($token);
+
+    if (self::isAuth()) {
+      return true;
+    }
+    self::$conn->close();
+    self::res_json(401, "Invalid token, Permission denied");
+    return false;
   }
 
-  function buildObject($res) {
+  static function test($token) {
+    if (self::connect($token)) {
+      echo json_encode(self::getUser());
+    } else {
+      self::res_json('201', 'rip');
+    }
+  }
+
+  static function getHeader($key) {
+    $headers = getallheaders();
+    if (isset($headers[$key])) {
+      return $headers[$key];
+    }
+    return false;
+  }
+
+  static function buildObject($res) {
     $json = array();
     while ($i = $res->fetch_assoc()) {
       $json[] = $i;
@@ -51,12 +49,26 @@ class API {
     return $json;
   }
 
-  function getUserType($utorid) {
-    $sql = self::$db->query("SELECT type FROM USERS WHERE utorid='$utorid'");
+  static function isAuth() {
+    return self::$isAuth;
+  }
+
+  static function res_json($status, $err) {
+    http_response_code($status);
+
+    // Build json and return
+    $obj["status"] = $status;
+    $obj["error"] = $err;
+    echo json_encode($obj);
+  }
+
+  private static function authenticate($token) {
+    $sql = self::$db->query("SELECT id,type FROM SYSTEM WHERE token='$token'");
     if ($sql) {
       $obj = self::buildObject($sql);
-      if (sizeof($obj) >= 1) {
-        return $obj[0]["type"];
+      if (sizeof($obj) == 1) {
+        self::$isAuth = true;
+        self::$user = $obj[0];
       }
     } else {
       echo self::$conn->error;
@@ -64,6 +76,12 @@ class API {
     return false;
   }
 
+  static function getUser() {
+    if (self::isAuth()) {
+      return self::$user;
+    }
+    return false;
+  }
 }
 
 ?>
