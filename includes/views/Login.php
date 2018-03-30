@@ -1,22 +1,17 @@
-  <title>Login Page</title>
-  <link rel = "stylesheet" href = "login.css">
-  <body>
-    <div align = "center">
-      <div class = "margin" align = "left">
-        <div class = "topback"><b>Login</b>
-        </div>
-          <div class = "innermargin">
-            <form action = "">
-              <input type = 'radio' name = "student" value = "Student">Student<br>
-              <input type = 'radio' name="Ta" value = "Ta">TA<br>
-              <input type = 'radio' name="professor" value = "Professor">professor<br>
-            </form>
-            <form action = "" method = "post">
-              <label> UserName   :</label><input type = "text" name = "username" class = 'box'/><br /><br />
-              <label> Password   :</label><input type = "password" name = "password" class = "box"  /><br /><br />
-              <input type = "submit" value = "Login"/><br />
-            </form>
-          <div id="space"><?php echo $error; ?></div>
+  <div align = "center">
+    <div class = "margin" align = "left">
+      <div class = "topback"><b>Login</b>
       </div>
-    </div>
-</body>
+        <div class = "innermargin">
+          <form action = "">
+            <input type = 'radio' name = "student" value = "Student">Student
+            <input type = 'radio' name="Ta" value = "Ta">TA
+            <input type = 'radio' name="professor" value = "Professor"> Professor
+          </form>
+              <form action = "" method = "post">
+                <input type = "text" placeholder = "UserName"> <br>
+                <input type = "password" placeholder = "Password"><br>
+                <input type = "submit" value = "Login"/><br />
+            </form>
+          </div>
+  </div>
