@@ -63,7 +63,7 @@ class API {
   }
 
   private static function authenticate($token) {
-    $sql = self::$db->query("SELECT id,type FROM SYSTEM WHERE token='$token'");
+    $sql = self::$db->query("SELECT id,type FROM system WHERE token='$token'");
     if ($sql) {
       $obj = self::buildObject($sql);
       if (sizeof($obj) == 1) {
