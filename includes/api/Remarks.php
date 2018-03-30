@@ -16,15 +16,16 @@ class Remarks extends API {
 
   private function GET() {
     $id = "";
+    $user = self::getUser();
     if (isset($_GET['id'])) {
       $id = "id=" . $_GET['id'];
     }
 
-    if (self::getUser()["type"] == "S") {
+    if ($user["type"] == "S") {
       if ($id != "") {
         $id = "AND $id";
       }
-      $sql = self::$db->query("SELECT * FROM remarks WHERE sid=" . self::getUser()['id'] . " $id");
+      $sql = self::$db->query("SELECT * FROM remarks WHERE sid=" . $user['id'] . " $id");
     } else {
       if ($id != "") {
         $id = "WHERE $id";

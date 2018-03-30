@@ -12,6 +12,22 @@ Route::set('syllabus', function () {
   Syllabus::CreateView('Syllabus');
 });
 
+Route::set('assignment', function () {
+  Assignment::CreateView('Assignment');
+});
+
+Route::set('feedback',function(){
+  Feedback::CreateView('Feedback');
+});
+
+Route::set('lab',function(){
+  Lab::CreateView('Lab');
+});
+
+Route::set('team',function(){
+  Team::CreateView('Team');
+});
+
 Route::set('login', function () {
   Login::CreateView('Login');
 });
@@ -38,6 +54,9 @@ Route::set('api', function () {
         break;
       case 'remarks':
         Remarks::run($token);
+        break;
+      case 'marks':
+        Marks::run($token);
         break;
       default:
         API::res_json('403', 'Not found');
