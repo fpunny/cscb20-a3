@@ -1,40 +1,68 @@
 body{
-  background-color: #FFFFFF;
-  font-family: 'Roboto',sans-serif;
+  background-color: #253551;
+  font-family: "Gill Sans", sans-serif;
   font-size: 16px;
 }
-
-
-label{
-  font-weight: bold;
-  width: 100px;
-  font-size: 15px;
+b{
+  font-family: "Verdana", sans-serif;
+  font-weight: lighter;
 }
-
-.box{
-  border: #666666 solid 1px;
-}
-
 .margin{
   width: 400px;
-  border: #333333 solid 1px;
+  border: none;
+  margin-top: 200px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .topback{
-  background-color: #333333;
-  color: #FFFFFF;
-  padding:3px;
-  margin-bottom: 30px;
+  color: #333333;
+  text-align: center;
+  padding: 17px 60px;
+  font-size: 25px;
 }
 
 .innermargin{
-  margin: 30px;
-  margin-left: 20px;
+  margin-left: 31px;
+  background-color: #FFFFFF;
+  padding: 6px 12px;
+}
+input[type = 'radio']{
+  margin-right: 5px;
+  margin-left: 2px;
+}
+
+input[type = 'text']{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+input[type = "submit"]{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+form{
+  margin-bottom: 0em;
+}
+.button{
+  background-color: #3a3b3d;
+  border: none;
+  padding: 10px 140px;
+  height: 40px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.center{
+  text-align: center;
 
 }
 
-space{
+.adjust{
   font-size: 15px;
-  color: #cc0000;
-  margin-top: 20px;
+  width: 317px;
+  height: 40px;
+  padding: 5px 10px;
 }
