@@ -48,6 +48,8 @@ a {
   display: flex;
   list-style-type: none;
   padding: 0 20px;
+  padding-right: 0;
+  align-items: center;
 }
 
 #nav-text a {
@@ -72,6 +74,40 @@ a {
   color: inherit;
   transition: color 0.4s ease-in-out 0s;
   text-decoration: none;
+}
+
+.nav-overview {
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#sign-in-btn {
+  margin: auto 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px 20px !important;
+  transition: all 0.4s ease-in-out 0s !important;
+}
+
+.white {
+  border: 2px solid white;
+}
+
+.color {
+  border: 2px solid transparent;
+  background-color: #246ae4;
+  color: white !important;
+}
+
+.white:hover {
+  background-color: white !important;
+  color: black !important;
+}
+
+.color:hover {
+  background-color: #122ee0 !important;
 }
 
 footer {

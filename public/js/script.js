@@ -2,6 +2,7 @@ let nav = document.getElementById("nav");
 let text = document.getElementById("nav-text");
 let mobilenav = document.getElementById("nav-mobile-text");
 let mobileback = document.getElementById("nav-mobile-backdrop");
+let loginButton = document.getElementById("sign-in-btn");
 let focus = false;
 
 window.addEventListener("scroll", function () {
@@ -9,6 +10,8 @@ window.addEventListener("scroll", function () {
     nav.classList.remove("nav-dropped");
     text.style.color = "white";
     nav.style.color = "white";
+    loginButton.classList.remove("color");
+    loginButton.classList.add("white");
 
     var a = document.querySelectorAll("#nav-text a");
     [].forEach.call(a, function(i) {
@@ -19,6 +22,8 @@ window.addEventListener("scroll", function () {
     nav.classList.add("nav-dropped");
     text.style.color = "#3b3b3b";
     nav.style.color = "#3b3b3b";
+    loginButton.classList.remove("white");
+    loginButton.classList.add("color");
 
     var a = document.querySelectorAll("#nav-text a");
     [].forEach.call(a, function(i) {

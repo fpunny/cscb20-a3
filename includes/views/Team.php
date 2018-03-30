@@ -2,7 +2,7 @@
   <div id="team-backdrop" class="pos-default"></div>
   <h1 id="team-title">Course Team</h1>
   <div class="content">
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/abbas.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Abbas Attarwala</h2>
@@ -16,7 +16,7 @@
         </ul>
       </div>
     </div>
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/anon.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Suhailah Rahman</h2>
@@ -30,7 +30,7 @@
         </ul>
       </div>
     </div>
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/anon.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Bryan Tam</h2>
@@ -44,7 +44,7 @@
         </ul>
       </div>
     </div>
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/anon.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Harmanraj Wadhwa</h2>
@@ -58,7 +58,7 @@
         </ul>
       </div>
     </div>
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/anon.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Xia Zhongyang</h2>
@@ -72,7 +72,7 @@
         </ul>
       </div>
     </div>
-    <div class="content-card">
+    <div class="content-card" tabindex="0">
       <img src="public/src/anon.jpg" width="100%"/>
       <div class="content-card-text">
         <h2>Nagarjun Ratnesh</h2>

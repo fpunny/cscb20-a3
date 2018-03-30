@@ -2,7 +2,7 @@
     <div id="lab-backdrop" class="pos-default"></div>
     <h1 id="lab-title">Labs</h1>
     <div class="content">
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 1</h2>
         <h3>Overview</h3>
@@ -23,7 +23,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 2</h2>
         <h3>Overview</h3>
@@ -34,7 +34,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 3</h2>
         <h3>Overview</h3>
@@ -45,7 +45,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 4</h2>
         <h3>Overview</h3>
@@ -62,7 +62,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 5</h2>
         <h3>Overview</h3>
@@ -73,7 +73,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 6</h2>
         <h3>Overview</h3>
@@ -88,7 +88,7 @@
           <a class="content-btn" href="#">Handout</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <div class="content-card-back pos-default"></div>
         <h2>Week 7</h2>
         <h3>Overview</h3>

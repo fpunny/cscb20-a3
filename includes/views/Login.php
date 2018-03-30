@@ -18,5 +18,6 @@
           <label> Password   :</label><input type = "password" name = "password" class = "box"  /><br /><br />
           <input type = "submit" value = "Login"/><br />
         </form>
+      </div>
   </div>
 </div>

@@ -2,7 +2,7 @@
     <div id="assignment-backdrop" class="pos-default"></div>
     <h1 id="assignment-title">Assignments</h1>
     <div class="content">
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <h2>Assignment 1</h2>
         <div class="content-crumb">
           <span class="content-dot">Due: February 9, 11:59</span>
@@ -24,7 +24,7 @@
           <a class="content-btn" href="#">PDF Version</a>
         </div>
       </div>
-      <div class="content-card">
+      <div class="content-card" tabindex="0">
         <h2>Assignment 2</h2>
         <div class="content-crumb">
           <span class="content-dot">Due: March 12, 11:59</span>
@@ -35,7 +35,7 @@
           <a class="content-btn" href="#">PDF Version</a>
         </div>
       </div>
-      <div class="content-card TBR">
+      <div class="content-card TBR" tabindex="0">
         <h2>Assignment 3</h2>
         <div class="content-crumb">
           <span class="content-dot">Due: TBA</span>
