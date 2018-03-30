@@ -12,6 +12,26 @@ Route::set('syllabus', function () {
   Syllabus::CreateView('Syllabus');
 });
 
+Route::set('login', function () {
+  Login::CreateView('Login');
+});
+
+Route::set('assignment', function () {
+  Assignment::CreateView('Assignment');
+});
+
+Route::set('feedback',function(){
+  Feedback::CreateView('Feedback');
+});
+
+Route::set('lab',function(){
+  Lab::CreateView('Lab');
+});
+
+Route::set('team',function(){
+  Team::CreateView('Team');
+});
+
 Route::set('api', function () {
   if ($_GET['api']) {
     echo $_GET['api'];

@@ -1,5 +1,5 @@
 <header id="home-header" class="section">
-  <img id="stack" src="/cscb20/punfrede/public/src/stack.svg" alt="Web Stack"/>
+  <img id="stack" src="/public/src/stack.svg" alt="Web Stack"/>
   <div id="home-header-title">
     <h1><strong>CSCB20</strong> Introduction to Web &amp; Databases</h1>
     <span>Winter 2018</span>

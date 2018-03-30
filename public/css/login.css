@@ -1,0 +1,40 @@
+body{
+  background-color: #FFFFFF;
+  font-family: 'Roboto',sans-serif;
+  font-size: 16px;
+}
+
+
+label{
+  font-weight: bold;
+  width: 100px;
+  font-size: 15px;
+}
+
+.box{
+  border: #666666 solid 1px;
+}
+
+.margin{
+  width: 400px;
+  border: #333333 solid 1px;
+}
+
+.topback{
+  background-color: #333333;
+  color: #FFFFFF;
+  padding:3px;
+  margin-bottom: 30px;
+}
+
+.innermargin{
+  margin: 30px;
+  margin-left: 20px;
+
+}
+
+space{
+  font-size: 15px;
+  color: #cc0000;
+  margin-top: 20px;
+}
