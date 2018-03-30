@@ -58,6 +58,9 @@ Route::set('api', function () {
       case 'marks':
         Marks::run($token);
         break;
+      case 'users':
+        Users::run($token);
+        break;
       default:
         API::res_json('403', 'Not found');
         break;
