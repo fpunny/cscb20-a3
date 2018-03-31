@@ -1,30 +1,35 @@
 body{
-  background-color: #253551;
+  background-color:	#07bff2;
   font-family: "Gill Sans", sans-serif;
   font-size: 16px;
 }
+
 b{
+  color:  white;
   font-family: "Verdana", sans-serif;
   font-weight: lighter;
+  text-align: left;
 }
 .margin{
-  width: 400px;
+  width: 560px;
+  height:300px;
   border: none;
   margin-top: 200px;
-  background-color: #FFFFFF;
+  background-color: #497fdd;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .topback{
   color: #333333;
   text-align: center;
-  padding: 17px 60px;
+  padding: 20px 60px;
   font-size: 25px;
 }
 
 .innermargin{
-  margin-left: 31px;
-  background-color: #FFFFFF;
+  color : white;
+  margin-left: 180px;
+  background-color: #497fdd;
   padding: 6px 12px;
 }
 input[type = 'radio']{
@@ -45,7 +50,7 @@ form{
   margin-bottom: 0em;
 }
 .button{
-  background-color: #3a3b3d;
+  background-color: #213d70;
   border: none;
   padding: 10px 140px;
   height: 40px;
@@ -55,7 +60,9 @@ form{
   font-size: 16px;
   cursor: pointer;
 }
+
 .center{
+  margin-left: 140px;
   text-align: center;
 
 }
