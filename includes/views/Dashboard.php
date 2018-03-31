@@ -32,7 +32,10 @@ session_start();
         </div>
       </div>
       <div class="content-card big">
-        <h2>Remark Requests</h2>
+        <div class="content-head-wrapper">
+          <h2>Remark Requests</h2>
+          <a href="#" class="more">New Request</a>
+        </div>
         <div class="stack">
 
           <div class="stack-item new">
@@ -56,45 +59,16 @@ session_start();
               <div class="dot"></div>
             </div>
           </div>
-
-          <div class="stack-item">
-            <div class="stack-head">
-              <h3>Assignment 2</h3>
-              <span>2 Months ago</span>
-            </div>
-            <div class="stack-status">
-              <p>NOPE xDDD. GET REKT. YEEEEEEEEEEEEEEEEEeeETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTtttttTT</p>
-              <div class="dot"></div>
-            </div>
-          </div>
-
-          <div class="stack-item">
-            <div class="stack-head">
-              <h3>Assignment 2</h3>
-              <span>2 Months ago</span>
-            </div>
-            <div class="stack-status">
-              <p>NOPE xDDD. GET REKT. YEEEEEEEEEEEEEEEEEeeETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTtttttTT</p>
-              <div class="dot"></div>
-            </div>
-          </div>
-
-          <div class="stack-item">
-            <div class="stack-head">
-              <h3>Assignment 2</h3>
-              <span>2 Months ago</span>
-            </div>
-            <div class="stack-status">
-              <p>NOPE xDDD. GET REKT. YEEEEEEEEEEEEEEEEEeeETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTtttttTT</p>
-              <div class="dot"></div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
-    <div class="content-card">
-      <h2>Grades</h2>
-    </div>
+
+    <?php
+
+    $user = Controller::getUser();
+    require_once("./includes/components/dashboard/" . $user['type'] . ".php");
+
+    ?>
+
   </div>
 </section>

@@ -9,7 +9,7 @@ class API {
   private static $isAuth = false;
   private static $user;
 
-  function connect($token) {
+  static function connect($token) {
     self::$db = new Database();
     self::$conn = self::$db->connect();
     self::authenticate($token);
@@ -20,14 +20,6 @@ class API {
     self::$conn->close();
     self::res_json(401, "Invalid token, Permission denied");
     return false;
-  }
-
-  static function test($token) {
-    if (self::connect($token)) {
-      echo json_encode(self::getUser());
-    } else {
-      self::res_json('201', 'rip');
-    }
   }
 
   static function getHeader($key) {

@@ -24,6 +24,21 @@ class Database {
   public function error() {
     return self::$connection->error;
   }
+
+  public function buildObject($res) {
+    $json = array();
+    while ($i = $res->fetch_assoc()) {
+      $json[] = $i;
+    }
+    $res->close();
+    self::$connection->next_result();
+
+    return $json;
+  }
+
+  public function close() {
+    self::$connection->close();
+  }
 }
 
 ?>
