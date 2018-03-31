@@ -34,12 +34,14 @@ class Controller {
     self::$conn = self::$db->connect();
     $token = $_SESSION['token'];
     $sql = self::$db->query("SELECT users.*, type from users NATURAL JOIN system where session='$token'");
-    if ($sql && sizeof($sql) == 1) {
-      self::$user = self::$db->buildObject($sql)[0];
-      return true;
-    } else {
-      return false;
+    if ($sql) {
+      $obj = self::$db->buildObject($sql);
+      if (sizeof($obj) == 1) {
+        self::$user = $obj[0];
+        return true;
+      }
     }
+    return false;
   }
 }
 

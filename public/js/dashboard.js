@@ -10,7 +10,7 @@ for (i = 0; i < cards.length; i++) {
 }
 
 ajax({
-  url: "/_api/sessiontotoken",
+  url: "/cscb20/punfrede/a3/_api/sessiontotoken",
   success: function (data) {
     console.log(data);
     user = data;
@@ -26,7 +26,7 @@ ajax({
 
 function getUser() {
   ajax({
-    url: "/api/users/" + user.id + "?token=" + user.token,
+    url: "/cscb20/punfrede/a3/api/users/" + user.id + "?token=" + user.token,
     success: function (data) {
       var dat = data[0];
       console.log(dat);
