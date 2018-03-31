@@ -45,12 +45,18 @@ class API {
     return self::$isAuth;
   }
 
-  static function res_json($status, $err) {
+  static function res_json($status, $data) {
     http_response_code($status);
 
     // Build json and return
     $obj["status"] = $status;
-    $obj["error"] = $err;
+
+    // Only status we would be dealing with
+    if ($status < 300) {
+      $obj["data"] = $data;
+    } else if ($status >= 400) {
+      $obj["error"] = $data;
+    }
     echo json_encode($obj);
   }
 
@@ -73,6 +79,35 @@ class API {
       return self::$user;
     }
     return false;
+  }
+
+  private function checkSession($session) {
+    $sql = self::$db->query("SELECT id, token, session, date FROM system WHERE session='$session'");
+    if ($sql) {
+      $res = self::$db->buildObject($sql)[0];
+      $now = new DateTime("now");
+      $diff = $now->diff(new DateTime($res["date"]));
+
+      $hours = ($diff->days * 24) + ($diff->h);
+      if ($hours > 1) {
+        echo json_encode($res);
+        return true;
+      }
+    } else {
+      self::res_json(401, self::$db->error());
+    }
+    return false;
+  }
+
+  static function session_to_token() {
+    if (isset($_SESSION['token'])) {
+      self::$db = new Database();
+      self::$conn = self::$db->connect();
+      if (!self::checkSession($_SESSION['token'])) {
+        self::res_json(401, "Invalid Session. Access Denied");
+      }
+      self::$conn->close();
+    }
   }
 }
 

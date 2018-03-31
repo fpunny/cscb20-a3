@@ -47,10 +47,12 @@ class Remarks extends API {
   private function POST() {
     $id = "";
     if (isset($_GET['id'])) {
-      $msg = file_get_contents("php://input");
-      if ($msg == '') {
-        self::res_json(400, "Missing Content");
-      } else if (strlen($msg) > 5000) {
+      $msg = json_decode(file_get_contents("php://input"), true);
+      if ($json == null && json_last_error() !== JSON_ERROR_NONE) {
+        self::res_json(400, "Invalid JSON");
+      } else if (array_key_exists("data", $msg)) {
+        self::res_json(400, "Missing data key");
+      } else if (strlen($msg["data"]) > 5000) {
         self::res_json(400, "Content too large. Must be within 5000 characters");
       } else {
         $sql = self::$db->query("INSERT INTO messages(rid, sid, data) VALUES ($id, self::getUser()['id'], '$msg')");

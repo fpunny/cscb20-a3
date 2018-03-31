@@ -23,7 +23,11 @@ class Users extends API {
       }
     } else {
       if ($user['type'] == 'S') {
-        $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='T' OR type='P')");
+        if ($_GET['id'] != $user['id']) {
+          $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='T' OR type='P')");
+        } else {
+          $sql = self::$db->query("SELECT name, email, system.type, utorid, users.id FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
+        }
       } else {
         $sql = self::$db->query("SELECT * FROM users WHERE id='" . $_GET['id'] . "'");
       }

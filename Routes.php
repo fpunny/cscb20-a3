@@ -1,39 +1,46 @@
 <?php
 
 Route::set('index.php', function () {
-  Home::CreateView('Home');
+  Home::CreateView();
 });
 
 Route::set('home', function () {
-  Home::CreateView('Home');
+  Home::CreateView();
 });
 
 Route::set('syllabus', function () {
-  Syllabus::CreateView('Syllabus');
+  Syllabus::CreateView();
 });
 
 Route::set('assignment', function () {
-  Assignment::CreateView('Assignment');
+  Assignment::CreateView();
 });
 
 Route::set('feedback',function(){
-  Feedback::CreateView('Feedback');
+  Feedback::CreateView();
 });
 
 Route::set('lab',function(){
-  Lab::CreateView('Lab');
+  Lab::CreateView();
 });
 
 Route::set('team',function(){
-  Team::CreateView('Team');
+  Team::CreateView();
 });
 
 Route::set('login', function () {
-  Login::CreateView('Login');
+  Login::CreateView();
 });
 
 Route::set('dashboard', function () {
-  Dashboard::CreateView('Dashboard');
+  Dashboard::CreateView();
+});
+
+Route::set('_api', function () {
+  if (isset($_GET["sys"]) && $_GET["sys"] == "sessiontotoken") {
+    session_start();
+    API::session_to_token();
+  }
 });
 
 Route::set('api', function () {

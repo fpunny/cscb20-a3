@@ -83,3 +83,34 @@ function setMobileNav(state) {
     })();
   }
 }
+
+function ajax(param) {
+  return new Promise((resolve, reject)=> {
+    param.async = param.async || true;
+    param.method = param.method || "GET";
+
+    let xhttp = new XMLHttpRequest();
+    if (param.headers) {
+      for (header in param.headers) {
+        xhttp.setRequestHeader(header, param.headers[header]);
+      }
+    }
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4) {
+        if (this.status == 200 && param.success) {
+          param.success(JSON.parse(this.responseText));
+          resolve();
+        } else if (param.error) {
+          param.error(JSON.parse(this.responseText));
+          reject();
+        }
+      }
+    }
+    xhttp.open(param.method, param.url, param.async);
+    if (param.data) {
+      xhttp.send(JSON.stringify(params));
+    } else {
+      xhttp.send();
+    }
+  });
+}

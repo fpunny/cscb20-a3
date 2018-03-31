@@ -1,7 +1,6 @@
 <?php
   session_start();
-  $_SESSION["token"] = "abcd";
-  echo "QED";
+  $_SESSION["token"] = "d2ce28b9a7fd7e4407e2b0fd499b7fe4";
 ?>
 <div align = "center">
   <div class = "margin" align = "left">
