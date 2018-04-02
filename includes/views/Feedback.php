@@ -9,10 +9,10 @@
         <div class="feedback-card-content">
           <p class="feedback-highlight">Let us know so we can further improve the course</p>
           <ul>
-            <li>What did you like that we should continue?</li>
-            <li>What did you dislike?</li>
-            <li>What do you want to see in the future?</li>
-            <li>Or anything else you can think of...</li>
+            <li>What do you like about the instructor teaching?</li>
+            <li>What do you recommend the instructor to do to improve their teaching?</li>
+            <li>What do you like about the labs?</li>
+            <li>What do you recommend the lab instructors to do to improve their lab teaching? </li>
           </ul>
 
           <p class="feedback-highlight">Have you done your evaluations yet? Click the button below to submit one!</p>
