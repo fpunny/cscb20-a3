@@ -36,10 +36,24 @@ Route::set('dashboard', function () {
   Dashboard::CreateView();
 });
 
+Route::set('marks', function () {
+  Marks::CreateView();
+});
+
 Route::set('_api', function () {
-  if (isset($_GET["sys"]) && $_GET["sys"] == "sessiontotoken") {
+  if (isset($_GET["sys"])) {
     session_start();
-    API::session_to_token();
+    switch ($_GET["sys"]) {
+      case "sessiontotoken":
+        API::session_to_token();
+        break;
+      case "login":
+        API::login();
+        break;
+      default:
+        API::res_json('403', 'Not found');
+        break;
+    }
   }
 });
 
@@ -67,6 +81,9 @@ Route::set('api', function () {
         break;
       case 'users':
         Users::run($token);
+        break;
+      case 'work':
+        Work::run($token);
         break;
       default:
         API::res_json('403', 'Not found');

@@ -148,6 +148,8 @@
   background-color: rgba(0,0,0,0.02);
   border-left: 5px solid transparent;
   margin-bottom: 2px;
+  text-decoration: none;
+  color: inherit;
   transition: background-color 0.4s ease-in-out 0s;
 }
 
@@ -200,11 +202,11 @@
   font-weight: bold;
 }
 
-#dashboard .stack-item.new:hover {
+#dashboard .stack-item.new:hover, #dashboard .stack-item.new:focus {
   background-color: rgba(0,0,255,0.07);
 }
 
-#dashboard .stack-item:hover {
+#dashboard .stack-item:hover, #dashboard .stack-item:focus {
   background-color: rgba(0,0,0,0.07);
 }
 

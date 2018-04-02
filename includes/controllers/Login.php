@@ -3,7 +3,8 @@
 class Login extends Controller {
 
   public static function CreateView() {
-    self::getView("Login");
+    $viewName = "Login";
+    require_once("./includes/views/$viewName.php");
   }
 
 }

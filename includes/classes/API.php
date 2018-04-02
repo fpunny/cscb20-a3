@@ -31,14 +31,7 @@ class API {
   }
 
   static function buildObject($res) {
-    $json = array();
-    while ($i = $res->fetch_assoc()) {
-      $json[] = $i;
-    }
-    $res->close();
-    self::$conn->next_result();
-
-    return $json;
+    return self::$db->buildObject($res);
   }
 
   static function isAuth() {
@@ -108,6 +101,32 @@ class API {
       }
       self::$conn->close();
     }
+  }
+
+  static function login() {
+    self::$db = new Database();
+    self::$conn = self::$db->connect();
+
+    $msg = json_decode(file_get_contents("php://input"), true);
+    if ($msg == null && json_last_error() !== JSON_ERROR_NONE) {
+      self::res_json(400, "Invalid JSON");
+    } else if (array_key_exists("e", $msg) && array_key_exists("w", $msg) && array_key_exists("k", $msg)) {
+      self::$db->query("SELECT session FROM users NATURAL JOIN system WHERE email='" . $msg['e'] . "' AND password='" . $msg["w"] . "' AND type='" . $msg["t"] . "'");
+      if ($sql) {
+        $obj = self::$db->buildObject($sql);
+        if (sizeof($obj) == 1) {
+          $_SESSION['token'] = $obj[0]["session"];
+          self::res_json(200, "Login Successful");
+        } else {
+          self::res_json(401, "Access Denied");
+        }
+      } else {
+        self::res_json(400, self::$db->error());
+      }
+    } else {
+      self::res_json(401, "Access Denied");
+    }
+    self::$conn->close();
   }
 }
 

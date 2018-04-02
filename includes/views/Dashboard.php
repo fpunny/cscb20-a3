@@ -22,29 +22,7 @@
             }
           ?>
         </div>
-        <div id="remarks" class="stack">
-          <div class="stack-item new">
-            <div class="stack-head">
-              <h3>Assignment 1</h3>
-              <span>Today</span>
-            </div>
-            <div class="stack-status">
-              <p>Pls give me grade</p>
-              <div class="dot"></div>
-            </div>
-          </div>
-
-          <div class="stack-item">
-            <div class="stack-head">
-              <h3>Assignment 2</h3>
-              <span>2 Months ago</span>
-            </div>
-            <div class="stack-status">
-              <p>NOPE xDDD. GET REKT. YEEEEEEEEEEEEEEEEEeeETTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTtttttTT</p>
-              <div class="dot"></div>
-            </div>
-          </div>
-        </div>
+        <div id="remarks" class="stack"></div>
       </div>
     </div>
 
