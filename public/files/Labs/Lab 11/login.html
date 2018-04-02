@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0123)https://portal.utoronto.ca/bbcswebdav/pid-6657930-dt-content-rid-44379672_2/courses/Winter-2018-CSCB20H3-S-LEC01/login.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <script>
+        function authenticate_user() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var userinfo = JSON.parse(this.responseText);
+                    // do what you want to do here
+                    alert("success: " + userinfo["success"] + "\nuserid: " + userinfo["id"] + "\nauthenticated: "+ userinfo["auth_success"]+"\nis_student: "+userinfo['is_student']);
+                }
+            };
+            // change utorid to your utorid
+            url="https://mathlab.utsc.utoronto.ca/cscb20/utorid/userAuth.php?user="+username+"&password="+password;
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+
+
+
+<body>
+
+    <form action="javascript:authenticate_user();">
+        User name:
+        <br>
+        <input type="text" name="username" id="username">
+        <br> User password:
+        <br>
+        <input type="password" name="password" id="password">
+        <input type="submit" id="submit">
+    </form>
+
+
+
+</body></html>

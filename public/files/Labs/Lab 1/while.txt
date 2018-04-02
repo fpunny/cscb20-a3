@@ -1,0 +1,44 @@
+# while Loops functions
+def display_list(L):
+    i = 0
+    while i < len(L):
+        print(L[i])
+        i += 1
+        
+def display_list_even(L):
+    i = 0
+    while i < len(L):
+        if i % 2 == 0:
+            print(L[i])
+        i += 1
+        
+def display_list_reverse(L):
+    i = len(L)-1
+    while i >= 0:
+        print(L[i])
+        i -= 1
+        
+def sum_elements(L):
+    i = 0; sum = 0
+    while i < len(L) and sum <= 100:
+        sum += L[i]
+        i += 1
+    return sum
+
+def duplicates(L):
+    i = 0
+    while i+1 < len(L):
+        if L[i] == L[i+1]:
+            return True
+        i += 1
+    return False
+
+if __name__ == '__main__':
+    list1 = [0,2,4,6,8,1,3,5,7,9]
+    list2 = [0,2,4,6,8,1,3,5,7,7,9]
+    print(duplicates(list1))
+    print(duplicates(list2))
+    print(sum_elements(list1))
+    display_list_reverse(list1)
+    display_list_even(list1)
+    display_list(list1)

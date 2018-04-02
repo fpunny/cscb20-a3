@@ -1,0 +1,42 @@
+/* CSCB20 - Lab 8; CSS codes */
+body {
+	padding-top: 5%;
+	background-color: white;
+	text-align: center;	
+	border: 3px solid green;
+}
+	
+h1 {
+    margin: auto;
+	text-align: center;
+	font-size: 31pt;
+}
+	
+#newGame {
+	font-size: 25px;
+}
+
+#letterButtons button {
+	background-color: black;
+	color: white;
+	width: 47px;
+	height: 47px;
+	display: inline-block;
+	font-size: 16px;
+}
+	
+p {
+	text-align: left;	
+	padding-left: 100px;
+}
+
+img {
+	display: none;
+	width: auto;
+	height: auto;
+}
+	
+.disabledbutton {
+	pointer-events: none;
+	opacity: 0.4;
+}

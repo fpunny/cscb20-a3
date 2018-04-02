@@ -1,0 +1,40 @@
+names = ['bob', 'ho', 'zahara', 'amitabha', 'dov', 'maria']
+
+# Lists #1a.
+print(names[2:5])
+
+# Lists #1b.
+print(names[0:1])
+
+# Lists #1c.
+print(names[3:len(names)])
+
+# Lists #2
+names.remove('ho')
+print(names)
+
+# Lists #3
+names.insert(0,"zero")
+print(names)
+
+# Lists #4
+names.sort(reverse=True)
+print(names)
+
+# Lists #5
+def every_third(L):
+    newL = []
+    for i in range(0,len(L),3):
+        newL.append(L[i])
+    return newL
+
+print(every_third(names))
+        
+# Lists #6
+def every_ith(L,i):
+    newL = []
+    for j in range(0,len(L),i):
+        newL.append(L[j])
+    return newL
+
+print(every_ith(names, 2))
