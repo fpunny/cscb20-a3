@@ -40,55 +40,35 @@ Route::set('marks', function () {
   Marks::CreateView();
 });
 
-Route::set('_api', function () {
-  if (isset($_GET["sys"])) {
-    session_start();
-    switch ($_GET["sys"]) {
-      case "sessiontotoken":
-        API::session_to_token();
-        break;
-      case "login":
-        API::login();
-        break;
-      default:
-        API::res_json('403', 'Not found');
-        break;
-    }
-  }
-});
-
 Route::set('api', function () {
-
-  if (!isset($_GET["token"])) {
-    API::res_json("401", "Missing Token");
-    return null;
-  }
-
-  $token = $_GET['token'];
-  if (isset($_GET["api"])) {
-    switch($_GET["api"]) {
-      case 'test':
-        API::test($token);
-        break;
-      case 'feedback':
-        Feedback::run($token);
-        break;
-      case 'remarks':
-        Remarks::run($token);
-        break;
-      case 'marks':
-        Marks::run($token);
-        break;
-      case 'users':
-        Users::run($token);
-        break;
-      case 'work':
-        Work::run($token);
-        break;
-      default:
-        API::res_json('403', 'Not found');
-        break;
-    }
+  switch($_GET["api"]) {
+    case 'session':
+      Session::run();
+      break;
+    case 'feedback':
+      Feedback::run();
+      break;
+    case 'remarks':
+      Remarks::run();
+      break;
+    case 'marks':
+      Marks::run();
+      break;
+    case 'users':
+      Users::run();
+      break;
+    case 'work':
+      Work::run();
+      break;
+    case "login":
+      Login::run();
+      break;
+    case "register":
+      Register::run();
+      break;
+    default:
+      API::res_json('403', 'Not found');
+      break;
   }
 });
 

@@ -2,8 +2,8 @@
 
 class Remarks extends API {
 
-  static function run($token) {
-    if (self::connect($token)) {
+  static function run() {
+    if (self::connect()) {
       if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         self::GET();
       } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,11 +33,11 @@ class Remarks extends API {
       $sql = self::$db->query("SELECT * FROM remarks $id");
     }
     if ($sql) {
-      $obj = self::buildObject($sql);
+      $obj = self::$db->buildObject($sql);
       foreach ($obj as &$item) {
         $sql = self::$db->query("SELECT * FROM messages WHERE rid=" . $item['id']);
         if ($sql) {
-          $item["data"] = self::buildObject($sql);
+          $item["data"] = self::$db->buildObject($sql);
         }
       }
       echo json_encode($obj);

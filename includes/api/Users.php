@@ -2,8 +2,8 @@
 
 class Users extends API {
 
-  static function run($token) {
-    if (self::connect($token)) {
+  static function run() {
+    if (self::connect()) {
       if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         self::GET();
       } else {
@@ -26,7 +26,7 @@ class Users extends API {
         if ($_GET['id'] != $user['id']) {
           $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='T' OR type='P')");
         } else {
-          $sql = self::$db->query("SELECT users.* system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
+          $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
         }
       } else {
         $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
@@ -34,7 +34,7 @@ class Users extends API {
     }
 
     if ($sql) {
-      $obj = self::buildObject($sql);
+      $obj = self::$db->buildObject($sql);
       if (sizeof($obj) == 0) {
         self::res_json(400, "User not found, or permission denied");
       } else {

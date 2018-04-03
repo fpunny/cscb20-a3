@@ -1,7 +1,5 @@
 <?php
 
-header("Content-Type: application/json; charset=UTF-8");
-
 class API {
 
   protected static $db;
@@ -9,16 +7,24 @@ class API {
   private static $isAuth = false;
   private static $user;
 
-  static function connect($token) {
+  static function connect() {
     self::$db = new Database();
     self::$conn = self::$db->connect();
-    self::authenticate($token);
 
-    if (self::isAuth()) {
-      return true;
+    if (isset($_SESSION['token'])) {
+      $status = self::authenticate($_SESSION['token']);
+      if ($status) {
+        self::$isAuth = true;
+        return true;
+      } else if ($status === null) {
+        return null;
+      }
+      self::res_json(401, "Invalid Session");
+
+    } else {
+      self::res_json(400, "Missing Session. Please login first");
     }
     self::$conn->close();
-    self::res_json(401, "Invalid token, Permission denied");
     return false;
   }
 
@@ -30,12 +36,17 @@ class API {
     return false;
   }
 
-  static function buildObject($res) {
-    return self::$db->buildObject($res);
-  }
-
   static function isAuth() {
     return self::$isAuth;
+  }
+
+  private function setUser($id) {
+    $sql = self::$db->query("SELECT id, type FROM system WHERE id=$id");
+    if ($sql) {
+      self::$user = self::$db->buildObject($sql)[0];
+    } else {
+      self::res_json(400, self::$db->error());
+    }
   }
 
   static function res_json($status, $data) {
@@ -53,38 +64,22 @@ class API {
     echo json_encode($obj);
   }
 
-  private static function authenticate($token) {
-    $sql = self::$db->query("SELECT id,type FROM system WHERE token='$token'");
-    if ($sql) {
-      $obj = self::buildObject($sql);
-      if (sizeof($obj) == 1) {
-        self::$isAuth = true;
-        self::$user = $obj[0];
-      }
-    } else {
-      echo self::$conn->error;
-    }
-    return false;
-  }
-
-  static function getUser() {
-    if (self::isAuth()) {
-      return self::$user;
-    }
-    return false;
-  }
-
-  private function checkSession($session) {
-    $sql = self::$db->query("SELECT id, token, session, date FROM system WHERE session='$session'");
-    if ($sql) {
+  private static function authenticate($session) {
+    $sql = self::$db->query("SELECT id, token, date FROM system WHERE session='$session'");
+    if ($sql && $sql->num_rows != 0) {
       $res = self::$db->buildObject($sql)[0];
       $now = new DateTime("now");
-      $diff = $now->diff(new DateTime($res["date"]));
+      $then = new DateTime($res["date"]);
+      $diff = $now->diff($then);
 
-      $hours = ($diff->days * 24) + ($diff->h);
-      if ($hours > 1) {
-        echo json_encode($res);
+      $mins = ($diff->days * 24 * 60) + ($diff->h * 60) + ($diff->i);
+      if ($mins <= 60) {
+        self::setUser($res["id"]);
         return true;
+      } else {
+        session_destroy();
+        self::res_json(400, "You have timed out. Please sign in again.");
+        return null;
       }
     } else {
       self::res_json(401, self::$db->error());
@@ -92,41 +87,18 @@ class API {
     return false;
   }
 
-  static function session_to_token() {
-    if (isset($_SESSION['token'])) {
-      self::$db = new Database();
-      self::$conn = self::$db->connect();
-      if (!self::checkSession($_SESSION['token'])) {
-        self::res_json(401, "Invalid Session. Access Denied");
-      }
-      self::$conn->close();
+  static function update_session($id) {
+    $sql = self::$db->query("UPDATE system SET date=now() WHERE id=$id");
+    if (!$sql) {
+      self::res_json(400, self::$db->error());
     }
   }
 
-  static function login() {
-    self::$db = new Database();
-    self::$conn = self::$db->connect();
-
-    $msg = json_decode(file_get_contents("php://input"), true);
-    if ($msg == null && json_last_error() !== JSON_ERROR_NONE) {
-      self::res_json(400, "Invalid JSON");
-    } else if (array_key_exists("e", $msg) && array_key_exists("w", $msg) && array_key_exists("k", $msg)) {
-      self::$db->query("SELECT session FROM users NATURAL JOIN system WHERE email='" . $msg['e'] . "' AND password='" . $msg["w"] . "' AND type='" . $msg["t"] . "'");
-      if ($sql) {
-        $obj = self::$db->buildObject($sql);
-        if (sizeof($obj) == 1) {
-          $_SESSION['token'] = $obj[0]["session"];
-          self::res_json(200, "Login Successful");
-        } else {
-          self::res_json(401, "Access Denied");
-        }
-      } else {
-        self::res_json(400, self::$db->error());
-      }
-    } else {
-      self::res_json(401, "Access Denied");
+  static function getUser() {
+    if (self::isAuth()) {
+      return self::$user;
     }
-    self::$conn->close();
+    return false;
   }
 }
 

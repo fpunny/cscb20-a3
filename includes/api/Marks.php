@@ -1,8 +1,8 @@
 <?php
 
 class Marks extends API {
-  static function run($token) {
-    if (self::connect($token)) {
+  static function run() {
+    if (self::connect()) {
       if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         self::GET();
       } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -21,7 +21,7 @@ class Marks extends API {
     }
     $sql = self::$db->query("SELECT * FROM grades $where");
     if ($sql) {
-      echo json_encode(self::buildObject($sql));
+      echo json_encode(self::$db->buildObject($sql));
     } else {
       self::res_json(400, self::$db->error());
     }

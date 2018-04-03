@@ -7,19 +7,38 @@
   box-sizing: border-box;
 }
 
-#login-frame {
+.frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-frame {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   background-color: white;
   padding: 40px;
-  width: 90%;
-  max-width: 300px;
+  width: 50%;
+  position: relative;
+  top: -40px;
+  opacity: 0;
+  max-width: 340px;
+  margin: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#alert {
+  margin-top: -6px;
+  margin-bottom: 2px;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .form-title {
   font-size: 2rem;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
 }
 
 .form-title strong {
@@ -27,7 +46,7 @@
   letter-spacing: 0.01rem;
 }
 
-#login-frame input[type=text], #login-frame input[type=password] {
+input[type=text], input[type=password], select {
   padding: 12px 18px;
   font-weight: bold;
   font-size: 0.9rem;
@@ -38,11 +57,16 @@
   transition: background-color 0.4s ease-in-out 0s;
 }
 
-#login-frame input[type=text]:hover, #login-frame input[type=password]:hover {
+select {
+  padding: 12px 13px;
+  color: rgba(0,0,0,0.6);
+}
+
+input[type=text]:hover, input[type=password]:hover {
   background-color: rgba(0,0,0,0.1);
 }
 
-#login-frame button {
+.login-frame button {
   font-size: 0.9rem;
   font-weight: bold;
   background-color: #4679ec;
@@ -52,7 +76,7 @@
   transition: background-color 0.4s ease-in-out 0s;
 }
 
-#login-frame button:hover, #login-frame button:focus {
+button:hover, button:focus {
   background-color: #184bbd;
 }
 
@@ -70,6 +94,41 @@
   color: rgba(0,0,0,0.9);
 }
 
+label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin-top: -8px;
+  margin-bottom: 8px;
+  margin-left: 4px;
+  color: red;
+}
+
 .form-foot {
   display: flex;
+}
+
+option[value=""] {
+  display: none;
+}
+
+option {
+  background-color: white;
+}
+
+input.error, select.error {
+  background-color: rgba(255, 0, 0, 0.17);
+}
+
+input.success, select.success {
+  background-color: rgba(97, 241, 7, 0.17);
+}
+
+@media screen and (max-width: 800px) {
+
+  .frame {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
 }

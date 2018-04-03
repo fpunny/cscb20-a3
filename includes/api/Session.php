@@ -1,6 +1,7 @@
 <?php
 
-class Work extends API {
+class Session extends API {
+
   static function run() {
     if (self::connect()) {
       if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -12,9 +13,11 @@ class Work extends API {
   }
 
   private function GET() {
-    $sql = self::$db->query("SELECT * FROM work");
+    $user = self::getUser();
+    $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id=" . $user['id']);
     if ($sql) {
-      echo json_encode(self::$db->buildObject($sql));
+      $obj = self::$db->buildObject($sql);
+      self::res_json(200, $obj[0]);
     } else {
       self::res_json(400, self::$db->error());
     }

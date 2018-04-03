@@ -2,8 +2,8 @@
 
 class Feedback extends API {
 
-  static function run($token) {
-    if (self::connect($token) && self::isAuth()) {
+  static function run() {
+    if (self::connect()) {
       if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         self::GET();
       } else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -19,7 +19,7 @@ class Feedback extends API {
     if ($user['type'] == 'P') {
       $sql = self::$db->query("SELECT * FROM feedback WHERE sid='" . $user['id'] . "'");
       if ($sql) {
-        echo json_encode(self::buildObject($sql));
+        echo json_encode(self::$db->buildObject($sql));
       }
     }
   }
@@ -52,7 +52,7 @@ class Feedback extends API {
   private static function getType($sid) {
     $sql = self::$db->query("SELECT type FROM system WHERE id='$sid'");
     if ($sql) {
-      $obj = self::buildObject($sql);
+      $obj = self::$db->buildObject($sql);
       return $obj[0]['type'];
     } else {
       return false;

@@ -10,9 +10,9 @@ for (i = 0; i < cards.length; i++) {
 }
 
 ajax({
-  url: "/_api/sessiontotoken",
+  url: "/api/session",
   success: function (data) {
-    user = data;
+    user = data.data;
   },
   error: function (err) {
     console.log(err);
@@ -21,7 +21,7 @@ ajax({
   getUser();
   getFeedback();
   ajax({
-    url: "/api/work?token=" + user.token,
+    url: "/api/work",
     success: function (data) {
       getGrades(data);
       getRemarks(data);
@@ -36,7 +36,7 @@ function getFeedback() {
   var src = document.getElementById("feedback");
   if (src) {
     ajax({
-      url: "/api/feedback?token=" + user.token,
+      url: "/api/feedback?token=",
       success: function (data) {
         for (i in data) {
           var options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -54,38 +54,29 @@ function getFeedback() {
 }
 
 function getUser() {
-  ajax({
-    url: "/api/users/" + user.id + "?token=" + user.token,
-    success: function (data) {
-      var dat = data[0];
-      console.log(data);
-      var src = document.getElementById("overview-content");
-      for (item in dat) {
-        var title = item[0].toUpperCase() + item.substr(1);
-        if (item == "type") {
-          switch(dat.type) {
-            case 'S':
-              dat.type = "Student"; break;
-            case 'P':
-              dat.type = "Professor"; break;
-            case 'T':
-              dat.type = "TA"; break;
-          }
-        }
-        if (item != 'id' && dat[item] != null) {
-          src.innerHTML += "<div class='overview-content'><h3>" + title + ":</h3><span>" + dat[item] + "</span></div>";
-        }
+  var dat = user;
+  var src = document.getElementById("overview-content");
+  for (item in dat) {
+    var title = item[0].toUpperCase() + item.substr(1);
+    if (item == "type") {
+      switch(dat.type) {
+        case 'S':
+          dat.type = "Student"; break;
+        case 'P':
+          dat.type = "Professor"; break;
+        case 'T':
+          dat.type = "TA"; break;
       }
-    },
-    error: function (err) {
-      console.log(err);
     }
-  });
+    if (item != 'id' && dat[item] != null) {
+      src.innerHTML += "<div class='overview-content'><h3>" + title + ":</h3><span>" + dat[item] + "</span></div>";
+    }
+  }
 }
 
 function getGrades(work) {
   ajax({
-    url: "/api/marks?token=" + user.token,
+    url: "/api/marks",
     success: function (data) {
       var obj = {};
       for (i in work) {
