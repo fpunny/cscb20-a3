@@ -41,6 +41,7 @@ Route::set('marks', function () {
 });
 
 Route::set('api', function () {
+  header("Content-Type: application/json; charset=UTF-8");
   switch($_GET["api"]) {
     case 'session':
       Session::run();

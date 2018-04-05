@@ -1,0 +1,27 @@
+# Instead of using the terms "url" or "file", we use the more general
+# term "reader" to indicate an open file or webpage.
+
+def display_lines(r):
+    '''Display the lines of the file/webpage (with leading and trailing
+    whitespace removed) from open reader r.'''
+
+def display_lines_with_text(r, text):
+    '''Display the lines of the file/webpage (with leading and trailing
+    whitespace removed) from open reader r that contain the str text.'''
+
+def copy_file(r):
+    '''Write the lines of open reader r to the file copy.txt.'''
+    
+if __name__ == '__main__':
+
+    data_file = open('data.txt')
+    display_lines(data_file)
+    data_file.close()
+
+    data_file = open('data.txt')
+    display_lines_with_text(data_file, 'ene')
+    data_file.close()
+
+    data_file = open('data.txt')
+    copy_file(data_file)
+    data_file.close()

@@ -1,0 +1,13 @@
+Acenaphthylene
+Methane	
+Ethane
+Propane
+Butane
+Pentane
+Pentalene
+Hexane
+Heptane
+Phenanthrene
+Octane
+Nonane
+Triphenylene

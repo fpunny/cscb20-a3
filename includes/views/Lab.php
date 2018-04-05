@@ -12,15 +12,15 @@
         </ul>
         <h3>Resources</h3>
         <div class="content-resources">
-          <a href="#">file_basics.txt</a>
-          <a href="#">lists.txt</a>
-          <a href="#">math_str.txt</a>
-          <a href="#">nested.txt</a>
-          <a href="#">while.txt</a>
-          <a href="#">data.txt</a>
+          <a href="public/files/labs/lab1/file_basics.txt">file_basics.txt</a>
+          <a href="public/files/labs/lab1/lists.txt">lists.txt</a>
+          <a href="public/files/labs/lab1/math_str.txt">math_str.txt</a>
+          <a href="public/files/labs/lab1/nested.txt">nested.txt</a>
+          <a href="public/files/labs/lab1/while.txt">while.txt</a>
+          <a href="public/files/labs/lab1/data.txt">data.txt</a>
         </div>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab1/handout.pdf">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -31,7 +31,7 @@
           <li>Review of Relational Algebra</li>
         </ul>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab2/handout.pdf">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -42,7 +42,7 @@
           <li>Getting started with mySQL</li>
         </ul>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab3/Week 3 Handout.html">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -54,12 +54,12 @@
         </ul>
         <h3>Resources</h3>
         <div class="content-resources">
-          <a href="#">Use SQL on Mathlab</a>
-          <a href="#">Solutions</a>
-          <a href="#">university.sql</a>
+          <a href="public/files/labs/lab4/useSQL.html">Use SQL on Mathlab</a>
+          <a href="public/files/labs/lab4/solutions.pdf">Solutions</a>
+          <a href="public/files/labs/lab4/university.sql">university.sql</a>
         </div>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab4/handout.pdf">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -70,7 +70,7 @@
           <li>Joins in mySQL</li>
         </ul>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab5/handout.pdf">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -82,10 +82,10 @@
         </ul>
         <h3>Resources</h3>
         <div class="content-resources">
-          <a href="#">starterHTML.html</a>
+          <a href="public/files/labs/lab6/starterHTML.html">starterHTML.html</a>
         </div>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab6/handout.pdf">Handout</a>
         </div>
       </div>
       <div class="content-card" tabindex="0">
@@ -96,7 +96,7 @@
           <li>Complex CSS for side menu, footers, and floats</li>
         </ul>
         <div class="content-btn-wrapper">
-          <a class="content-btn" href="#">Handout</a>
+          <a class="content-btn" href="public/files/labs/lab7/CSS is Awesome.html">Handout</a>
         </div>
       </div>
     </div>
