@@ -22,8 +22,6 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
     let elabel = document.getElementById("login-email-label");
     let plabel = document.getElementById("login-pass-label");
 
-    email.classList.remove("success");
-    pass.classList.remove("success");
     email.classList.remove("error");
     pass.classList.remove("error");
 
@@ -36,12 +34,10 @@ document.getElementById("login-btn").addEventListener("click", function(event) {
       elabel.innerHTML = "Invalid Email";
       succ = false;
     } else {
-      email.classList.add("success");
       elabel.innerHTML = "";
     }
 
     if (pass.value != "") {
-      pass.classList.add("success");
       plabel.innerHTML = "";
     } else {
       pass.classList.add("error");
@@ -125,6 +121,7 @@ function login(email, password) {
       }
     },
     error: function (err) {
+      document.getElementById("alert").innerHTML = "Invalid Email/Password";
       console.log(err);
     }
   });
