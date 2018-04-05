@@ -65,7 +65,7 @@ class API {
   }
 
   private static function authenticate($session) {
-    $sql = self::$db->query("SELECT id, token, date FROM system WHERE session='$session'");
+    $sql = self::$db->query("SELECT id, date FROM system WHERE session='$session'");
     if ($sql && $sql->num_rows != 0) {
       $res = self::$db->buildObject($sql)[0];
       $now = new DateTime("now");

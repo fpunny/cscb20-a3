@@ -5,7 +5,7 @@ class Register extends API {
   public static function run() {
     self::$db = new Database();
     self::$conn = self::$db->connect();
-    $query1 = "INSERT INTO system(password, token, session, type) VALUES ('%s', '%s', '%s', '%s')";
+    $query1 = "INSERT INTO system(password, session, type) VALUES ('%s', '%s', '%s')";
     $query2 = "INSERT INTO users(id, utorid, name, email) VALUES (%d, '%s', '%s', '%s')";
     $msg = json_decode(file_get_contents("php://input"), true);
     if ($msg == null && json_last_error() !== JSON_ERROR_NONE) {
@@ -13,7 +13,7 @@ class Register extends API {
     } else if (array_key_exists("name", $msg) && array_key_exists("utorid", $msg) && array_key_exists("password", $msg) && array_key_exists("email", $msg) && array_key_exists("type", $msg)) {
       $date = new DateTime('now');
       $session = md5($msg['utorid'] . $msg['name']);
-      $query = sprintf($query1, md5($msg['password']), md5($msg['utorid'] . $msg['type']), $session, $msg["type"]);
+      $query = sprintf($query1, md5($msg['password']), $session, $msg["type"]);
       $sql = self::$db->query($query);
       if ($sql) {
         $id = self::$conn->insert_id;
