@@ -109,7 +109,7 @@ document.getElementById("register-btn").addEventListener("click", function(event
 
 function login(email, password) {
   ajax({
-    url: '/api/login',
+    url: 'api/login',
     method: 'POST',
     data: {"e": email, "w": password},
     success: function (data) {
@@ -119,9 +119,9 @@ function login(email, password) {
         base = base[0].href;
       }
       if (callback) {
-        window.location.replace(base + "/" + callback);
+        window.location.replace(base + callback);
       } else {
-        window.location.replace(base + "/dashboard");
+        window.location.replace(base + "dashboard");
       }
     },
     error: function (err) {
@@ -132,7 +132,7 @@ function login(email, password) {
 
 function register(name, utorid, email, pass, type) {
   ajax({
-    url: '/api/register',
+    url: 'api/register',
     method: 'POST',
     data: {
       name: name,

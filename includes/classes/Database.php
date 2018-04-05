@@ -5,7 +5,7 @@ class Database {
   protected static $connection;
 
   public function connect() {
-    $config = parse_ini_file('../../config.ini');
+    $config = parse_ini_file('./config.ini');
     self::$connection = new mysqli($config['server'], $config['username'], $config['password'], $config['dbname']);
 
     if (self::$connection === false) {

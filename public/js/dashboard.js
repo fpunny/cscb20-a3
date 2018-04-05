@@ -10,7 +10,7 @@ for (i = 0; i < cards.length; i++) {
 }
 
 ajax({
-  url: "/api/session",
+  url: "api/session",
   success: function (data) {
     user = data.data;
   },
@@ -21,7 +21,7 @@ ajax({
   getUser();
   getFeedback();
   ajax({
-    url: "/api/work",
+    url: "api/work",
     success: function (data) {
       getGrades(data);
       getRemarks(data);
@@ -36,7 +36,7 @@ function getFeedback() {
   var src = document.getElementById("feedback");
   if (src) {
     ajax({
-      url: "/api/feedback?token=",
+      url: "api/feedback?token=",
       success: function (data) {
         for (i in data) {
           var options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -76,7 +76,7 @@ function getUser() {
 
 function getGrades(work) {
   ajax({
-    url: "/api/marks",
+    url: "api/marks",
     success: function (data) {
       var obj = {};
       for (i in work) {
@@ -119,7 +119,7 @@ function getGrades(work) {
 
 function getRemarks(work) {
   ajax({
-    url: "/api/remarks?token=" + user.token,
+    url: "api/remarks?token=" + user.token,
     success: function (data) {
       var src = document.getElementById("remarks");
       for (i in data) {
