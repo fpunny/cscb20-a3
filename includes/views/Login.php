@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#111113">
 
-    <base href="<?php echo _BASEURL_; ?>">
+    <base href="<?php echo _BASEURL_ . "/"; ?>">
     <link rel='stylesheet' type='text/css' href='public/css/main.css'>
     <link rel='stylesheet' type='text/css' href='public/css/<?php echo strtolower($viewName); ?>.css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300|Source+Sans+Pro" rel="stylesheet">
