@@ -11,7 +11,7 @@ class Dashboard extends Controller {
       if (isset($_SESSION['token'])) {
         $query = $query . "&alert=You have timed out, please login again";
       }
-      header('Location: /login' . $query);
+      header("Location: " . _BASEURL_ . "login" . $query);
       exit();
     }
   }

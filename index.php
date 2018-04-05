@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+DEFINE("_BASEURL_", pathinfo($_SERVER['PHP_SELF'])['dirname']);
 date_default_timezone_set("America/Toronto");
 require_once('Routes.php');
 
