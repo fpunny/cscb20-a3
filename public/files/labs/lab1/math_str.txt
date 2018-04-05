@@ -1,0 +1,103 @@
+import math
+
+# Math (a)
+2 * math.pi
+
+# Math (b)
+math.floor(56.4)
+math.ceil(56.4)
+
+# Math (c)
+math.sqrt(math.log(244))
+
+# Math (d)
+math.log(256, 2)
+
+# Type str 
+f = "superconductivity"
+# Type str (a)
+for c in f:
+    print(c)
+    
+# Type str (b)
+f = "superconductivity"
+for c in f:
+    print(c)
+    
+# Type str (c)
+for c in f:
+    print(c,",", end='')
+    
+# Type str (d)
+print()
+for c in f:
+    print(c+",", end='')
+#
+#OR:
+#
+print()
+for c in f:
+    print("%s," %c, end='')
+
+# Using str Methods
+s = "abcdefgh"
+# str Methods (a)
+s.endswith('h')
+
+# str Methods (b)
+s.isdigit()
+
+# str Methods (c)
+s.replace('l','1')
+
+# str Methods (d)
+s.zfill(6)
+
+# str Methods (e)
+s.islower()
+
+# str Methods (f)
+s.strip('0')
+
+# str Functions
+def longer(s1, s2):
+    return max(len(s1), len(s2))
+
+def earlier(s1, s2):
+    return min(s1, s2)
+
+def count_letter(s,c):
+    count = 0
+    for char in s:
+        if char == c:
+            count += 1
+    return count
+    
+def remove_digits(s):
+    s_no_digits = ""
+    for char in s:
+        if not char.isdigit():
+            s_no_digits += char
+    return s_no_digits 
+
+def repeat_character(s, c):
+    count = count_letter(s,c)
+    return c * count
+
+#
+#OR:
+#
+def repeat_character(s, c):
+    result = ''
+    for char in s:
+        if char == c:
+            result = result + c
+    return result
+
+def where(s,c):
+    count = 0
+    for char in s:
+        if char == c:
+            return count
+        count += 1
+    return -1    

@@ -1,0 +1,41 @@
+pets = [["Shoji", "cat", 18], ["Hanako", "dog", 15], ["Sir Toby", "cat", 10],\
+        ["Sachiko", "cat", 7], ["Sasha", "dog", 3], ["Lopez", "dog", 13]]
+
+print(pets[3])
+print(pets[3][2])
+
+for i in range(len(pets)):
+    print(pets[i])
+    
+# Nested Lists #1
+for p in pets:
+    print(p)
+    
+for i in range(len(pets)):
+    print(pets[i][1])
+    
+# Nested Lists #2
+for p in pets:
+    print(p[1])
+    
+# Nested Lists #3
+dogs = 0
+for p in pets:
+    if p[1] == 'dog':
+        dogs += 1
+print(dogs)
+
+# Nested Lists #4
+sum_ages = 0
+for p in pets:
+    sum_ages += p[2]
+print(sum_ages)
+
+# Nested Lists #5
+def nested_lengths(L):
+    lens = []
+    for l in L:
+        lens.append(len(l))
+    return lens
+
+print(nested_lengths(pets))

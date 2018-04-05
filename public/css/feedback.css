@@ -95,6 +95,9 @@
 
 #feedback .feedback-card-content {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 #feedback .content-card ul li {
@@ -118,17 +121,28 @@
 }
 
 #feedback .course-eval-wrapper {
-  padding: 16px 0;
+  padding: 4px 0;
   margin-bottom: 16px;
   margin-top: 8px;
 }
 
-#feedback .course-eval-btn {
-  text-decoration: none;
-  color: #3f4145;
-  border: 2px solid #3f4145;
-  padding: 12px 20px;
-  transition: all 0.2s ease-in-out 0s;
+select {
+  padding: 12px 13px;
+  color: rgba(0,0,0,0.6);
+  font-weight: bold;
+  font-size: 0.9rem;
+  width: 60%;
+  border: none;
+  background-color: rgba(0,0,0,0.06);
+  transition: background-color 0.4s ease-in-out 0s;
+}
+
+option[value=""] {
+  display: none;
+}
+
+option {
+  background-color: white;
 }
 
 #feedback .course-eval-btn:hover {

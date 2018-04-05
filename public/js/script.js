@@ -115,7 +115,13 @@ function ajax(param) {
         }
       }
     }
-    xhttp.open(param.method, param.url, param.async);
+
+    let base = document.getElementsByTagName('base');
+    if (base && base.length > 0) {
+      base = base[0].href;
+    }
+
+    xhttp.open(param.method, base + param.url, param.async);
     if (param.data) {
       xhttp.send(JSON.stringify(param.data));
     } else {

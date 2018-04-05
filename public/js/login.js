@@ -114,10 +114,14 @@ function login(email, password) {
     data: {"e": email, "w": password},
     success: function (data) {
       let callback = getParams("callback");
+      let base = document.getElementsByTagName('base');
+      if (base && base.length > 0) {
+        base = base[0].href;
+      }
       if (callback) {
-        window.location.replace(callback);
+        window.location.replace(base + "/" + callback);
       } else {
-        window.location.replace("/dashboard");
+        window.location.replace(base + "/dashboard");
       }
     },
     error: function (err) {
@@ -126,6 +130,24 @@ function login(email, password) {
   });
 }
 
-function register(name, utor, email, pass, type) {
-
+function register(name, utorid, email, pass, type) {
+  ajax({
+    url: '/api/register',
+    method: 'POST',
+    data: {
+      name: name,
+      utorid: utorid,
+      email: email,
+      password: pass,
+      type: type
+    },
+    success: function (data) {
+      alert("You have successfully be registered");
+      login(email, pass);
+    },
+    error: function (err) {
+      alert("There appears to be an error. Do you perhaps have an account already?");
+      console.log(err);
+    }
+  });
 }

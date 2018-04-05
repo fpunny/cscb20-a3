@@ -6,7 +6,6 @@ require_once('Routes.php');
 
 function __autoload($class_name) {
   if ($_GET["url"] == 'api' && file_exists("./includes/api/$class_name.php")) {
-    header("Content-Type: application/json; charset=UTF-8");
     require_once("./includes/api/$class_name.php");
   } else if (file_exists("./includes/classes/$class_name.php")) {
     require_once("./includes/classes/$class_name.php");
