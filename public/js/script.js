@@ -5,6 +5,8 @@ let mobileback = document.getElementById("nav-mobile-backdrop");
 let loginButton = document.getElementById("sign-in-btn");
 let focus = false;
 
+NodeList.prototype.forEach = Array.prototype.forEach;
+
 if (nav) {
   window.addEventListener("scroll", function () {
     if (document.body.scrollTop === 0) {
@@ -103,6 +105,7 @@ function ajax(param) {
           try {
             param.success(JSON.parse(this.responseText));
           } catch (err) {
+            console.log(err);
             console.log(this.responseText);
           }
           resolve();
@@ -110,6 +113,7 @@ function ajax(param) {
           try {
             param.error(JSON.parse(this.responseText));
           } catch (err) {
+            console.log(err);
             console.log(this.responseText);
           }
         }

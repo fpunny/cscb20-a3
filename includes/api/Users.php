@@ -16,15 +16,15 @@ class Users extends API {
     $user = self::getUser();
 
     if (!isset($_GET['id'])) {
-      if ($user['type'] == 'S') {
-        $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE type='T' OR type='P'");
+      if ($user['type'] == 'Student') {
+        $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE type='TA' OR type='Professor'");
       } else {
         $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system");
       }
     } else {
-      if ($user['type'] == 'S') {
+      if ($user['type'] == 'Student') {
         if ($_GET['id'] != $user['id']) {
-          $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='T' OR type='P')");
+          $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='TA' OR type='Professor')");
         } else {
           $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
         }

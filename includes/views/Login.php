@@ -36,9 +36,9 @@
           <label id="reg-pass-label" for="reg-pass-input"></label>
           <select id="reg-type-input"  required>
             <option value="" selected disabled>User Type</option>
-            <option value="S">Student</option>
-            <option value="P">Professor</option>
-            <option value="T">TA</option>
+            <option value="Student">Student</option>
+            <option value="Professor">Professor</option>
+            <option value="TA">TA</option>
           </select>
           <label id="reg-type-label" for="reg-type-input"></label>
           <div class="form-foot">

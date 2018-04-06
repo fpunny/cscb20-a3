@@ -5,6 +5,8 @@ class Login extends API {
   static function run() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       self::POST();
+    } else if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
+      self::DELETE();
     } else {
       self::res_json(403, "Invalid Method");
     }
@@ -34,6 +36,17 @@ class Login extends API {
       self::res_json(401, "Access Denied");
     }
     self::$conn->close();
+  }
+
+  private function DELETE() {
+    self::$db = new Database();
+    self::$conn = self::$db->connect();
+    if (session_status() == PHP_SESSION_ACTIVE) {
+      session_destroy();
+      self::res_json(200, "Successfully Logged out");
+    } else {
+      self::res_json(400, "No session found :c");
+    }
   }
 }
 

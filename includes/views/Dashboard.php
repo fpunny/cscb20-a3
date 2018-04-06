@@ -2,7 +2,7 @@
   <div id="dashboard-backdrop" class="pos-default"></div>
   <div id="dashboard-header-wrapper">
     <h1 id="dashboard-title">Dashboard</h1>
-    <a href="#" id="logout-btn">Logout</a>
+    <button id="logout-btn" onclick="logout()">Logout</button>
   </div>
   <div class="content">
     <div class="content-row">
@@ -17,8 +17,8 @@
         <div class="content-head-wrapper">
           <h2>Remark Requests</h2>
           <?php
-            if (Dashboard::getUser()['type'] == 'S') {
-              echo '<a href="#" class="more">New Request</a>';
+            if (Dashboard::getUser()['type'] == 'Student') {
+              echo '<a href="marks" class="more">New Request</a>';
             }
           ?>
         </div>

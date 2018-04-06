@@ -74,7 +74,16 @@
 }
 
 .list-row .list-col {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.7);
+  border-bottom: 1.5px solid rgba(255,255,255,0.8);
+}
+
+.list-row {
+  transition: background-color 0.3s ease-in-out 0s;
+}
+
+.list-row:hover, .list-row:focus {
+  background-color: rgba(0,0,0,0.05);
 }
 
 .list-col:first-child {
@@ -99,24 +108,46 @@
   margin: -10px;
 }
 
-.overview .search.content-card {
+.overview .search.content-card, .overview .work-search.content-card, .overview .grade-card {
   flex: 1 0 0;
 }
 
-.overview .user.content-card {
+.overview .user.content-card, .overview .work.content-card, .overview .reason-card {
   flex: 2 0 0;
 }
 
-.search {
+.work-section {
+  margin-top: 0px;
+}
+
+.search, .work-search, .grade-card {
   margin-right: 0;
 }
 
-.search-btn-wrapper {
+.search-btn-wrapper, .grade-btn-wrapper {
   padding: 4px 14px;
   padding-left: 0;
 }
 
-#search-btn {
+#grade-text {
+  height: 200px;
+  max-height: 30%;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.06);
+  border: none;
+  resize: none;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+#grade-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-btn, #update-btn, #course-search-btn, #grade-submit-btn {
   padding: 12px 18px;
   background-color: #1b6fec;
   color: white;
@@ -134,7 +165,7 @@
   color: rgba(0,0,0,0.2);
 }
 
-#search-btn:hover, #search-btn:focus {
+#search-btn:hover, #search-btn:focus, #update-btn:hover, #update-btn:focus, #course-search-btn:hover, #course-search-btn:focus, #grade-submit-btn:hover, #grade-submit-btn:focus {
   background-color: #185cc3;
 }
 
@@ -148,6 +179,26 @@ select {
   border: none;
   background-color: rgba(0,0,0,0.06);
   transition: background-color 0.4s ease-in-out 0s;
+}
+
+input, select {
+  padding: 12px 18px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  width: 100%;
+  border: none;
+  background-color: rgba(0,0,0,0.06);
+  transition: background-color 0.4s ease-in-out 0s;
+}
+
+select {
+  padding: 12px 13px;
+  color: rgba(0,0,0,0.6);
+}
+
+input:hover, select:hover, input:focus, select:focus {
+  background-color: rgba(0,0,0,0.1);
 }
 
 label {
@@ -176,12 +227,13 @@ option {
     flex-direction: column;
   }
 
-  .overview .search.content-card, .overview .user.content-card {
+  .overview .search.content-card, .overview .user.content-card, .overview .work.content-card, .overview .work-search.content-card, .overview .grade-card, .overview .reason-card {
     flex: auto;
   }
 
-  .search {
+  .search, .work-search, .grade-card {
     margin-right: 10px;
+    margin-bottom: 0;
   }
 
 }

@@ -16,8 +16,8 @@ class Feedback extends API {
 
   private static function GET() {
     $user = self::getUser();
-    if ($user['type'] == 'P') {
-      $sql = self::$db->query("SELECT * FROM feedback WHERE sid='" . $user['id'] . "'");
+    if ($user['type'] == 'Professor') {
+      $sql = self::$db->query("SELECT feedback.* FROM feedback WHERE sid='" . $user['id'] . "'");
       if ($sql) {
         echo json_encode(self::$db->buildObject($sql));
       }
@@ -36,7 +36,7 @@ class Feedback extends API {
       self::res_json(400, "Content too large, must be within 5000 characters");
     } else {
       $type = self::getType($sid);
-      if ($type == 'P') {
+      if ($type == 'Professor') {
         $sql = self::$db->query("INSERT INTO feedback(sid, data) VALUES ($sid, '$msg')");
         if ($sql) {
           self::res_json(200, "Successfully Posted");

@@ -78,6 +78,7 @@
   border-radius: 6px;
   padding: 10px;
   font-size: 1rem;
+  resize: none;
   background-color: rgba(0,0,0,0.07);
 }
 
