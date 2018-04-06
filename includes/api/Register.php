@@ -45,6 +45,9 @@ class Register extends API {
     $sql = self::$db->query("SELECT id from work");
     if ($sql) {
       $obj = self::$db->buildObject($sql);
+      if (sizeof($obj) == 0) {
+        return true;
+      }
       $query = "INSERT INTO grades(sid, wid, grade) VALUES ";
       foreach ($obj as $item) {
         $wid = $item['id'];

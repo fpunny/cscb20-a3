@@ -34,4 +34,8 @@
     ?>
 
   </div>
+  <div id="modal-backdrop"></div>
+  <div id="modal">
+    
+  </div>
 </section>
