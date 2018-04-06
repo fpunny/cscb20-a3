@@ -26,9 +26,9 @@ ajax({
     for (i in marks) {
       // Professor/TA Dashboard
       if (pList) {
-        pList.innerHTML += '<div class="list-row"><span class="list-col">' + marks[i].id + '</span><span class="list-col">' + marks[i].utorid + '</span><span class="list-col">' + marks[i].sname + '</span><span class="list-col">' + marks[i].wname + '</span><span class="list-col">' + marks[i].grade + '</span></div>';
+        pList.innerHTML += '<div class="list-row"><span class="list-col">' + marks[i].id + '</span><span class="list-col">' + marks[i].utorid + '</span><span class="list-col">' + marks[i].sname + '</span><span class="list-col">' + marks[i].wname + '</span><span class="list-col">' + marks[i].grade + '/' + marks[i].total + '</span></div>';
       } else if (sList) {
-        sList.innerHTML += '<div class="list-row"><span class="list-col">' + marks[i].id + '</span><span class="list-col">' + marks[i].wname + '</span><span class="list-col">' + marks[i].grade + '</span></div>';
+        sList.innerHTML += '<div class="list-row"><span class="list-col">' + marks[i].id + '</span><span class="list-col">' + marks[i].wname + '</span><span class="list-col">' + marks[i].grade + '/' + marks[i].total + '</span></div>';
       }
     }
   },
@@ -60,7 +60,7 @@ ajax({
         for (i in marks) {
           if (value == marks[i].utorid) {
             sid = marks[i].sid;
-            info.innerHTML += '<div class="mark-item"><label>' + marks[i].wname + '</label><input type="number" data-id="' + marks[i].id + '" data-wid="' + marks[i].wid + '" placeholder="' + marks[i].grade + '" min="0" max="' + marks[i].total + '"/></div>';
+            info.innerHTML += '<div class="mark-item"><label>' + marks[i].wname + '</label><input type="number" data-id="' + marks[i].id + '" data-wid="' + marks[i].wid + '" placeholder="' + marks[i].grade + '/' + marks[i].total + '" min="0" max="' + marks[i].total + '"/></div>';
           }
         }
         info.innerHTML += "<button id='update-btn' type='button' onclick='update(" + sid + ")'>Update</button>"
