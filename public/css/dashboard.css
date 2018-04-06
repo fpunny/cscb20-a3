@@ -107,6 +107,9 @@
 #dashboard .overview-content {
   padding-top: 5px;
   padding-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #dashboard .overview-content h3 {
