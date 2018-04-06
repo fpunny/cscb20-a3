@@ -36,7 +36,7 @@ class Work extends API {
     } else if (!array_key_exists("type", $json)) {
       self::res_json(400, "Missing type");
     } else {
-      $query = "INSERT INTO work(name, total, type) VALUES ('%s', %s, '%s')";
+      $query = "INSERT INTO work(name, total, type) VALUES (%s, %s, %s)";
       $sql = self::$db->query(sprintf($query, $json['name'], $json['total'], $json['type']));
       if ($sql && self::init_grades(self::$conn->insert_id)) {
         self::res_json(200, "New work successfully added");
