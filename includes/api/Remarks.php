@@ -83,7 +83,8 @@ class Remarks extends API {
       $sql = self::$db->query(sprintf("INSERT INTO remarks(sid, wid) VALUES (%s, %s)", self::getUser()['id'], $json['wid']));
       if ($sql) {
         $id = self::$conn->insert_id;
-        $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", $id, self::getUser()['id'], $json['data']));
+        echo sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", $id, self::getUser()['id'], $json['data']);
+        $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", $id, self::getUser()['id'], htmlspecialchars($json['data'])));
         if ($sql) {
           self::res_json(200, "Remark Request Sent");
         } else {
