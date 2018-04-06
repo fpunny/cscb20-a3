@@ -13,15 +13,13 @@
             <li>What do you recommend the instructor to do to improve their teaching?</li>
             <li>What do you like about the labs?</li>
             <li>What do you recommend the lab instructors to do to improve their lab teaching?</li>
+            <li>Or anything else you would like to comment on.</li>
           </ul>
 
-          <p class="feedback-highlight">Please select a professor to address below before sumbitting.</p>
-          <div class="course-eval-wrapper">
-            <select id="course-eval-select"  required>
+          <p class="feedback-highlight">Please select a professor to address below before submitting.</p>
+          <div class="feedback-wrapper">
+            <select id="feedback-select" required>
               <option value="" selected disabled>Select a Professor</option>
-              <option value="S">Student</option>
-              <option value="P">Professor</option>
-              <option value="T">TA</option>
             </select>
           </div>
         </div>
@@ -29,10 +27,19 @@
       <div id="feedback-card-2" class="content-card" tabindex="0">
         <div class="feedback-card-header">
           <h2>Feedback Form</h2>
-          <button id="feedback-submit-btn">Submit</button>
+          <button onclick="send_feedback()" id="feedback-submit-btn">Submit</button>
         </div>
         <div class="feedback-card-content">
-          <textarea id="feedback-form-input" placeholder="What's on your mind?"></textarea>
+          <label>What do you like about the instructor teaching?</label>
+          <textarea data-key="q1" class="feedback-form-input" placeholder="What's on your mind?"></textarea>
+          <label>What do you recommend the instructor to do to improve their teaching?</label>
+          <textarea data-key="q2" class="feedback-form-input" placeholder="What's on your mind?"></textarea>
+          <label>What do you like about the labs?</label>
+          <textarea data-key="q3" class="feedback-form-input" placeholder="What's on your mind?"></textarea>
+          <label>What do you recommend the lab instructors to do to improve their lab teaching?</label>
+          <textarea data-key="q4" class="feedback-form-input" placeholder="What's on your mind?"></textarea>
+          <label>What else would you like us to know?</label>
+          <textarea data-key="q5" class="feedback-form-input" placeholder="What's on your mind?"></textarea>
         </div>
       </div>
     </div>

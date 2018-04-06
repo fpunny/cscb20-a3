@@ -9,9 +9,6 @@
       <div class="content-card small">
         <h2>Overview</h2>
         <div id="overview-content"></div>
-        <div class="update-info-btn-wrapper">
-          <a class="update-info-btn" href="#">Update Info</a>
-        </div>
       </div>
       <div class="content-card big">
         <div class="content-head-wrapper">
@@ -34,8 +31,12 @@
     ?>
 
   </div>
-  <div id="modal-backdrop"></div>
-  <div id="modal">
-    
+  <div id="modal-backdrop" class="pos-default" onclick="setModal(false)"></div>
+  <div id="modal" class="pos-default">
+    <div id="modal-header">
+      <h2 id="modal-title"></h2>
+      <i id="modal-close" class="fas fa-times" onclick="setModal(false)"></i>
+    </div>
+    <div id="modal-content"></div>
   </div>
 </section>
