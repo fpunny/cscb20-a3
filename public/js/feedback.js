@@ -36,7 +36,7 @@ function send_feedback() {
     complete = false;
     // Ensure atleast one of them is filled out
     items.forEach(function(item) {
-      complete = (item.value != "");
+      complete = complete || (item.value != "");
       obj[item.getAttribute("data-key")] = item.value;
     });
 
