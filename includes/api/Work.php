@@ -37,7 +37,7 @@ class Work extends API {
       self::res_json(400, "Missing type");
     } else {
       $query = "INSERT INTO work(name, total, type) VALUES (%s, %s, %s)";
-      $sql = self::$db->query(sprintf($query, $json['name'], $json['total'], $json['type']));
+      $sql = self::$db->query(sprintf($query, htmlspecialchars($json['name']), htmlspecialchars($json['total']), htmlspecialchars($json['type'])));
       if ($sql && self::init_grades(self::$conn->insert_id)) {
         self::res_json(200, "New work successfully added");
       } else {
@@ -51,7 +51,7 @@ class Work extends API {
     if ($json == null && json_last_error() !== JSON_ERROR_NONE) {
       self::res_json(400, "Invalid JSON");
     } else {
-      $query = "UPDATE work SET %s WHERE id=" . $_GET['id'];
+      $query = "UPDATE work SET %s WHERE id=" . htmlspecialchars($_GET['id']);
       $set = "";
       foreach($json as $key => $value) {
         $set = $set . $key . "=" . "$value" . ", ";

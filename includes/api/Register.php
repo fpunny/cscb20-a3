@@ -13,12 +13,14 @@ class Register extends API {
       self::res_json(400, "Invalid JSON");
     } else if (array_key_exists("name", $msg) && array_key_exists("utorid", $msg) && array_key_exists("password", $msg) && array_key_exists("email", $msg) && array_key_exists("type", $msg)) {
       $session = md5($msg['utorid'] . $msg['name'] . $msg['password']);
-      $query = sprintf($query1, md5($msg['password']), $session, $msg["type"]);
+
+      // No need htmlspecialchars, md5 would destroy it...
+      $query = sprintf($query1, md5($msg['password']), $session, htmlspecialchars($msg["type"]));
       $sql = self::$db->query($query);
 
       if ($sql) {
         $id = self::$conn->insert_id;
-        $query = sprintf($query2, $id, $msg['utorid'], $msg['name'], $msg['email']);
+        $query = sprintf($query2, $id, htmlspecialchars($msg['utorid']), htmlspecialchars($msg['name']), htmlspecialchars($msg['email']));
         $sql = self::$db->query($query);
 
         $res = true;

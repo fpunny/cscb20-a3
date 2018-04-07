@@ -19,7 +19,7 @@ class Login extends API {
     if ($msg == null && json_last_error() !== JSON_ERROR_NONE) {
       self::res_json(400, "Invalid JSON");
     } else if (array_key_exists("e", $msg) && array_key_exists("w", $msg)) {
-      $sql = self::$db->query("SELECT id, session FROM users NATURAL JOIN system WHERE email='" . $msg['e'] . "' AND password='" . md5($msg["w"]) . "'");
+      $sql = self::$db->query("SELECT id, session FROM users NATURAL JOIN system WHERE email='" . htmlspecialchars($msg['e']) . "' AND password='" . md5($msg["w"]) . "'");
       if ($sql) {
         $obj = self::$db->buildObject($sql);
         if (sizeof($obj) == 1) {

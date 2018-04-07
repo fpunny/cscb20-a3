@@ -47,7 +47,7 @@ class Marks extends API {
         self::res_json(400, "Error: Missing grade");
       } else {
         $sql = self::$db->query(
-          sprintf($query, $_GET['id'], $json['sid'], $json['wid'], $json['grade'])
+          sprintf($query, htmlspecialchars($_GET['id']), htmlspecialchars($json['sid']), htmlspecialchars($json['wid']), htmlspecialchars($json['grade']))
         );
         if ($sql) {
           self::res_json(200, "Successfully Posted/Upgrade Mark");

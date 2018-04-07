@@ -22,7 +22,7 @@ class Remarks extends API {
     $id = "";
     $user = self::getUser();
     if (isset($_GET['id'])) {
-      $id = "id=" . $_GET['id'];
+      $id = "id=" . htmlspecialchars($_GET['id']);
     }
 
     if ($user["type"] == "Student") {
@@ -58,7 +58,7 @@ class Remarks extends API {
       } else if (strlen($msg["data"]) > 5000) {
         self::res_json(400, "Content too large. Must be within 5000 characters");
       } else {
-        $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", $_GET['id'], self::getUser()['id'], $msg["data"]));
+        $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", htmlspecialchars($_GET['id']), self::getUser()['id'], htmlspecialchars($msg["data"])));
         if ($sql) {
           self::res_json(200, "Successfully Posted");
         } else {
@@ -81,7 +81,7 @@ class Remarks extends API {
     } else if (strlen($json["data"]) > 5000) {
       self::res_json(400, "Content too large. Must be within 5000 characters");
     } else {
-      $sql = self::$db->query(sprintf("INSERT INTO remarks(sid, wid) VALUES (%s, %s)", self::getUser()['id'], $json['wid']));
+      $sql = self::$db->query(sprintf("INSERT INTO remarks(sid, wid) VALUES (%s, %s)", self::getUser()['id'], htmlspecialchars($json['wid'])));
       if ($sql) {
         $id = self::$conn->insert_id;
         $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s')", $id, self::getUser()['id'], htmlspecialchars($json['data'])));
@@ -98,14 +98,14 @@ class Remarks extends API {
 
   private function DELETE() {
     if (isset($_GET['id'])) {
-      $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s has requested to close this request. To close it, please click the close button below.')", $_GET['id'], self::getUser()['id'], self::getUser()['name']));
+      $sql = self::$db->query(sprintf("INSERT INTO messages(rid, sid, data) VALUES (%s, %s, '%s has requested to close this request. To close it, please click the close button below.')", htmlspecialchars($_GET['id']), self::getUser()['id'], self::getUser()['name']));
       if ($sql) {
         if (self::getUser()['type'] != 'Student') {
           $key = "p_close";
         } else {
           $key = "s_close";
         }
-        $sql = self::$db->query(sprintf("UPDATE remarks SET %s=true WHERE id=%s", $key, $_GET['id']));
+        $sql = self::$db->query(sprintf("UPDATE remarks SET %s=true WHERE id=%s", $key, htmlspecialchars($_GET['id'])));
         if ($sql) {
           self::res_json(200, "Close Request Sent");
         } else {

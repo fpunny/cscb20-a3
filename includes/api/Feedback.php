@@ -45,12 +45,13 @@ class Feedback extends API {
 
   private function VIEWED() {
     $user = self::getUser();
+    $id = htmlspecialchars($_GET['id']);
     if ($user['type'] == "Professor") {
-      $sql = self::$db->query("SELECT sid FROM feedback WHERE id=" . $_GET['id']);
+      $sql = self::$db->query("SELECT sid FROM feedback WHERE id=" . $id);
       if ($sql && $sql->num_rows) {
         $obj = self::$db->buildObject($sql);
         if ($obj[0]['sid'] == $user['id']) {
-          $sql = self::$db->query("UPDATE feedback SET viewed=true WHERE id=" . $_GET['id']);
+          $sql = self::$db->query("UPDATE feedback SET viewed=true WHERE id=" . $id);
           if ($sql) {
             self::res_json(200, "Feedback Viewed");
           } else {
@@ -89,7 +90,7 @@ class Feedback extends API {
         $type = self::getType($msg["sid"]);
         if ($type == 'Professor') {
           $query = "INSERT INTO feedback(sid, q1, q2, q3, q4, q5) VALUES (%s, '%s', '%s', '%s', '%s', '%s')";
-          $sql = self::$db->query(sprintf($query, $msg["sid"], $msg["data"]["q1"], $msg["data"]["q2"], $msg["data"]["q3"], $msg["data"]["q4"], $msg["data"]["q5"]));
+          $sql = self::$db->query(sprintf($query, htmlspecialchars($msg["sid"]), htmlspecialchars($msg["data"]["q1"]), htmlspecialchars($msg["data"]["q2"]), htmlspecialchars($msg["data"]["q3"]), htmlspecialchars($msg["data"]["q4"]), htmlspecialchars($msg["data"]["q5"])));
           if ($sql) {
             self::res_json(200, "Successfully Posted");
           } else {

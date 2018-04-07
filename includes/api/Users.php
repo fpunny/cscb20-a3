@@ -24,12 +24,12 @@ class Users extends API {
     } else {
       if ($user['type'] == 'Student') {
         if ($_GET['id'] != $user['id']) {
-          $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "' AND (type='TA' OR type='Professor')");
+          $sql = self::$db->query("SELECT users.id, name, email, system.type FROM users NATURAL JOIN system WHERE id='" . htmlspecialchars($_GET['id']) . "' AND (type='TA' OR type='Professor')");
         } else {
-          $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
+          $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . htmlspecialchars($_GET['id']) . "'");
         }
       } else {
-        $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . $_GET['id'] . "'");
+        $sql = self::$db->query("SELECT users.*, system.type FROM users NATURAL JOIN system WHERE id='" . htmlspecialchars($_GET['id']) . "'");
       }
     }
 
