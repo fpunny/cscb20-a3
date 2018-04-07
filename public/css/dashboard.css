@@ -270,15 +270,10 @@
 
 #modal-content {
   font-size: 1rem;
-  display: flex;
-  flex-direction: column;
   overflow-y: auto;
+  flex-grow: 1;
   background-color: rgba(0,0,0,0.04);
   padding: 10px 14px;
-}
-
-#modal-content * {
-  flex-grow: 1;
 }
 
 #modal-title {
@@ -322,6 +317,73 @@
 
 .feedback-modal-item p {
   font-size: 1rem;
+}
+
+.student-msg, .staff-msg {
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.remark-text-start {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgba(0,0,0,0.4);
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 20px;
+}
+
+.student-msg {
+  background-color: white;
+  margin-right: 20%;
+}
+
+.staff-msg {
+  background-color: white;
+  margin-left: 20%;
+}
+
+.student-msg .meta, .staff-msg .meta {
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-style: oblique;
+  padding-top: 8px;
+  color: rgba(0,0,0,0.6);
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-controls button {
+  margin-right: 8px;
+  padding: 10px 16px;
+  color: rgba(0,0,0,0.8);
+  border: 2px solid rgba(0,0,0,0.6);
+  font-weight: bold;
+  background-color: transparent;
+  transition: all 0.4s ease-in-out 0s;
+}
+
+#remarks-send:hover, #remarks-send:focus, #remarks-close:hover, #remarks-close:focus {
+  border: 2px solid transparent;
+  background-color: rgba(0,0,0,0.75);
+  color: rgba(255,255,255,0.94);
+}
+
+#remarks-textarea {
+  width: 100%;
+  height: 80px;
+  border: none;
+  resize: none;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  background-color: rgba(0,0,0,0.04);
 }
 
 @media screen and (max-width: 800px) {

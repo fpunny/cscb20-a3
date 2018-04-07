@@ -19,7 +19,13 @@
               <a href="https://piazza.com/class/jcpjjp5l4bywd"><li>Piazza</li></a>
               <a href="https://markus.utsc.utoronto.ca/cscb20w18/?locale=en"><li>Markus</li></a>
               <a href="team"><li>Course Team</li></a>
-              <a href="feedback"><li>Feedback</li></a>
+              <?php
+              if (self::getUser()['type'] == 'Student') {
+                echo '<a href="feedback"><li>Feedback</li></a>';
+              } else {
+                echo '<a href="dashboard"><li>Dashboard</li></a>';
+              }
+              ?>
             </ul>
           </div>
         </div>

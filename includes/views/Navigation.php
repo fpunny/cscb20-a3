@@ -21,10 +21,12 @@
         <a href="https://piazza.com/class/jcpjjp5l4bywd"><li>Piazza</li></a>
         <a href="https://markus.utsc.utoronto.ca/cscb20w18/?locale=en"><li>Markus</li></a>
         <a href="team"><li>Course Team</li></a>
-        <a href="feedback"><li>Feedback</li></a>
-        <li class="nav-overview">
-          <a id="sign-in-btn" class="white" href="login">Sign in</a>
-        </li>
+        <?php
+        if (self::getUser()['type'] == 'Student') {
+          echo '<a href="feedback"><li>Feedback</li></a>';
+        }
+        ?>
+        <a href="dashboard"><li>Dashboard</li></a>
       </ul>
       <div id="nav-mobile">
         <i id="nav-mobile-btn" class="fas fa-bars" onclick="setMobileNav(true)"></i>
@@ -44,7 +46,11 @@
       <a href="https://piazza.com/class/jcpjjp5l4bywd"><li>Piazza</li></a>
       <a href="https://markus.utsc.utoronto.ca/cscb20w18/?locale=en"><li>Markus</li></a>
       <a href="team"><li>Course Team</li></a>
-      <a href="feedback"><li>Feedback</li></a>
-      <a href="login"><li>Sign in</li></a>
+      <?php
+      if (self::getUser()['type'] == 'Student') {
+        echo '<a href="feedback"><li>Feedback</li></a>';
+      }
+      ?>
+      <a href="dashboard"><li>Dashboard</li></a>
     </ul>
     <div id="nav-mobile-backdrop" class="pos-default" onclick="setMobileNav(false)"></div>

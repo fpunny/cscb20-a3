@@ -41,7 +41,7 @@ class API {
   }
 
   private function setUser($id) {
-    $sql = self::$db->query("SELECT id, type FROM system WHERE id=$id");
+    $sql = self::$db->query("SELECT id, type, users.name FROM system NATURAL JOIN users WHERE id=$id");
     if ($sql) {
       self::$user = self::$db->buildObject($sql)[0];
     } else {

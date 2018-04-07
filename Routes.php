@@ -72,5 +72,4 @@ Route::set('api', function () {
       break;
   }
 });
-
 ?>

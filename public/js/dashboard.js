@@ -32,7 +32,6 @@ function getFeedback() {
     ajax({
       url: "api/feedback",
       success: function (data) {
-        console.log(data);
         for (i in data) {
           var options = { year: 'numeric', month: 'long', day: 'numeric' };
           var stat = (data[i].viewed == 0)? 'NEW' : "viewed";
@@ -203,6 +202,70 @@ function view(id) {
         item.classList.remove("new");
         document.querySelectorAll("#feedback .stack-item")[0].children[0].children[1].innerHTML = "viewed";
       }
+    },
+    error: function (err) {
+      console.log(err);
+    }
+  });
+}
+
+function remarks_modal(id) {
+  document.getElementById('modal-title').innerHTML = remarks[id].wName + " - " + remarks[id].name;
+  let body = document.getElementById('modal-content');
+  let msgs = remarks[id].data;
+
+  body.innerHTML += "<h3 class='remark-text-start'>--Conversation Begins--</h3>";
+  for (i in msgs) {
+    let date = new Date(msgs[i].time);
+    let str = buildDateTime(date);
+
+    if (msgs[i].sid == remarks[id].sid) {
+      let date = new Date(msgs[i].time);
+      let str = buildDateTime(date);
+      body.innerHTML += "<div class='student-msg'><p>" + msgs[i].data + "</p><span class='meta'>" + msgs[i].type + ": " + msgs[i].name + "<br>" + str + "</span></div>";
+    } else {
+      body.innerHTML += "<div class='staff-msg'><p>" + msgs[i].data + "</p><span class='meta'>" + msgs[i].type + ": " + msgs[i].name + "<br>" + str + "</span></div>";
+    }
+  }
+
+  body.innerHTML += "<div class='text-input'><textarea id='remarks-textarea' placeholder='Reply here'></textarea><div class='input-controls'><button id='remarks-send' type='button' onclick='send_remark(" + id + ")'>Send</button><button id='remarks-close' type='button' onclick='close_remark(" + id + ")'>Close Request</button></div></div>";
+  setModal(true);
+}
+
+function buildDateTime(date) {
+  let str = "";
+  str += date.getHours() + ":" + date.getMinutes() + " ";
+  str += date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+  return str;
+}
+
+function send_remark(id) {
+  let rid = remarks[id].id;
+  let text = document.getElementById("remarks-textarea");
+  if (text.value != "") {
+    ajax({
+      url: "api/remarks/" + rid,
+      method: "POST",
+      data: {"data": text.value},
+      success: function (data) {
+        alert("Your reply has been sent");
+        location.reload();
+      },
+      error: function (err) {
+        console.log(err);
+      }
+    });
+  }
+}
+
+function close_remark(id) {
+  let rid = remarks[id].id;
+  ajax({
+    url: "api/remarks/" + rid,
+    method: "DELETE",
+    success: function (data) {
+      alert("Close request has been sent");
+      location.reload();
     },
     error: function (err) {
       console.log(err);

@@ -3,7 +3,22 @@
 class Feedback extends Controller {
 
   public static function CreateView() {
-    self::getView("Feedback");
+    $status = self::checkSession();
+    $query = "?callback=assignment";
+    if ($status) {
+      if (self::getUser()['type'] == 'Student') {
+        header("Location: " . _BASEURL_ . "/login" . $query . "That page is for students only");
+        exit();
+      } else {
+        self::getView("Assignment");
+      }
+    } else if ($status == NULL) {
+      if (isset($_SESSION['token'])) {
+        $query = $query . "&alert=You have timed out, please login again";
+      }
+      header("Location: " . _BASEURL_ . "/login" . $query);
+      exit();
+    }
   }
 
 }
