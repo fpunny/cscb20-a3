@@ -6,11 +6,11 @@ class Feedback extends Controller {
     $status = self::checkSession();
     $query = "?callback=assignment";
     if ($status) {
-      if (self::getUser()['type'] == 'Student') {
+      if (self::getUser()['type'] != 'Student') {
         header("Location: " . _BASEURL_ . "/login" . $query . "That page is for students only");
         exit();
       } else {
-        self::getView("Assignment");
+        self::getView("Feedback");
       }
     } else if ($status == NULL) {
       if (isset($_SESSION['token'])) {
