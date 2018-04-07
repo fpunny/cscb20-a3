@@ -2,7 +2,7 @@
   <div id="syllabus-backdrop" class="pos-default"></div>
   <div id="syllabus-header-wrapper">
     <h1 id="syllabus-title">Course Syllabus</h1>
-    <a href="#" id="syllabus-download-btn">Download</a>
+    <a href="public/files/CSCB20CourseSyllabus.pdf" id="syllabus-download-btn">Download</a>
   </div>
   <div class="content">
     <div id="syll-col-1" class="content-col">
@@ -19,7 +19,7 @@
         <ul>
           <li><strong>Instructor:</strong> A. Attarwala</li>
           <li><strong>Lecture:</strong> Mondays 9am - 11am in SW319</li>
-          <li><strong>Email:</strong> <a href="abbas.attarwala@utoronto.ca">Abbas.Attarwala@utoronto.ca</a></li>
+          <li><strong>Email:</strong> <a href="mailto:abbas.attarwala@utoronto.ca">Abbas.Attarwala@utoronto.ca</a></li>
         </ul>
       </div>
       <div class="content-card" tabindex="0">
